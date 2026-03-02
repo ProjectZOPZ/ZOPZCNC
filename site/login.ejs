@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZOPZ STRESS | Sign In</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        * { font-family: 'Inter', sans-serif; }
+        
+        body { 
+            background: #0a0a0a;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+        
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #141414;
+            --bg-card: #141414;
+            --border-color: #1f1f1f;
+            --border-hover: #1f1f1f;
+            --text-primary: #ffffff;
+            --text-secondary: #9ca3af;
+            --accent-primary: #ffffff;
+            --accent-secondary: #9ca3af;
+        }
+    </style>
+</head>
+<body class="text-gray-100 min-h-screen flex items-center justify-center p-4">
+    <div class="w-full max-w-md">
+        <div class="text-center mb-8">
+            <div class="flex justify-center mb-6">
+                <div class="w-20 h-20 flex items-center justify-center bg-[#0f0f0f] rounded border border-[#1f1f1f]">
+                    <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                </div>
+            </div>
+            <h1 class="text-4xl font-semibold mb-2 text-white">ZOPZ STRESS</h1>
+            <p class="text-[#9ca3af] text-sm">Sign in to your account</p>
+        </div>
+        
+        <div class="bg-[#141414] border border-[#1f1f1f] rounded p-8">
+            <% if (error) { %>
+                <div class="mb-6 bg-[#141414] border border-red-500/30 rounded p-4 text-red-400 text-sm flex items-center gap-2">
+                    <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span><%= error %></span>
+                </div>
+            <% } %>
+            
+            <form action="/login" method="POST" class="space-y-6" id="loginForm">
+                <div>
+                    <label for="username" class="block text-xs font-medium text-[#9ca3af] uppercase tracking-wider mb-2">Username</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                            <svg class="h-5 w-5 text-[#9ca3af]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                            </svg>
+                        </div>
+                        <input type="text" id="username" name="username" 
+                               class="w-full pl-12 pr-4 py-3.5 bg-[#0a0a0a] border border-[#1f1f1f] rounded text-white text-sm placeholder-[#9ca3af] focus:border-[#1f1f1f] focus:outline-none transition-colors" 
+                               placeholder="Enter your username" required>
+                    </div>
+                </div>
+                
+                <div>
+                    <label for="password" class="block text-xs font-medium text-[#9ca3af] uppercase tracking-wider mb-2">Password</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                            <svg class="h-5 w-5 text-[#9ca3af]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                            </svg>
+                        </div>
+                        <input type="password" id="password" name="password" 
+                               class="w-full pl-12 pr-4 py-3.5 bg-[#0a0a0a] border border-[#1f1f1f] rounded text-white text-sm placeholder-[#9ca3af] focus:border-[#1f1f1f] focus:outline-none transition-colors" 
+                               placeholder="Enter your password" required>
+                    </div>
+                </div>
+                
+                <!-- Terms and Service Section -->
+                <div class="bg-[#0a0a0a] border border-[#1f1f1f] rounded p-4 mt-8">
+                    <button type="button" id="termsToggle" class="w-full flex items-center justify-between text-left text-sm font-medium text-white hover:text-white transition-colors">
+                        <span class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                            Terms of Service
+                        </span>
+                        <svg id="termsIcon" class="w-5 h-5 text-[#9ca3af] transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div id="termsContent" class="hidden mt-4 max-h-60 overflow-y-auto text-xs text-[#9ca3af] space-y-3 pr-2">
+                        <div>
+                            <h4 class="font-medium text-white mb-1">No Refunds Policy</h4>
+                            <p>All sales are final. We do not provide refunds or exchanges for any services once purchased.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-white mb-1">Staff Respect</h4>
+                            <p>Respect toward staff members is mandatory. Any form of harassment, abuse, or disrespect will result in account suspension or termination.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-white mb-1">Account Sharing</h4>
+                            <p>Sharing your account with others is strictly prohibited. Accounts found to be accessed by multiple individuals will be permanently banned.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-white mb-1">End of Service</h4>
+                            <p>Lifetime plans remain active until the occurrence of ZOPZ Services EOS. If ZOPZ Services come back, all lifetime plans will be reinstated.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex items-start gap-3">
+                    <input type="checkbox" id="acceptTerms" name="acceptTerms" required
+                           class="mt-1 w-4 h-4 bg-[#0a0a0a] border-[#1f1f1f] rounded text-white focus:ring-2 focus:ring-white/20 cursor-pointer">
+                    <label for="acceptTerms" class="text-xs text-[#9ca3af] cursor-pointer">
+                        I have read and agree to the <button type="button" id="termsLabelToggle" class="text-white hover:text-white underline">Terms of Service</button>
+                    </label>
+                </div>
+                
+                <button type="submit" id="submitBtn"
+                        class="w-full bg-white text-[#0a0a0a] font-medium py-3.5 rounded transition-all duration-300 text-sm hover:bg-[#f0f0f0] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-white">
+                    Sign In
+                </button>
+            </form>
+            
+            <script>
+                const termsToggle = document.getElementById('termsToggle');
+                const termsContent = document.getElementById('termsContent');
+                const termsIcon = document.getElementById('termsIcon');
+                const termsLabelToggle = document.getElementById('termsLabelToggle');
+                const acceptTerms = document.getElementById('acceptTerms');
+                const submitBtn = document.getElementById('submitBtn');
+                
+                function toggleTerms() {
+                    const isHidden = termsContent.classList.contains('hidden');
+                    termsContent.classList.toggle('hidden');
+                    termsIcon.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
+                }
+                
+                termsToggle.addEventListener('click', toggleTerms);
+                termsLabelToggle.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (termsContent.classList.contains('hidden')) {
+                        toggleTerms();
+                    }
+                    termsContent.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                });
+                
+                function updateSubmitButton() {
+                    submitBtn.disabled = !acceptTerms.checked;
+                }
+                
+                acceptTerms.addEventListener('change', updateSubmitButton);
+                updateSubmitButton();
+            </script>
+        </div>
+        
+        <div class="text-center mt-6">
+            <a href="/" class="text-[#9ca3af] hover:text-white text-sm transition-colors">← Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>

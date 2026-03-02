@@ -1,0 +1,20 @@
+[8;24;80t{clear}[38;5;39m │ [38;5;39mAdmin Page[97m:
+[38;5;39m │ [97m[adduser]      [38;5;39m: [97mCreate a new user account
+[38;5;39m │ [97m[unblockip]    [38;5;39m: [97mUnblocks bruted accounts connected IP's
+[38;5;39m │ [97m[viewbrute]    [38;5;39m: [97mLists bruted accounts connected IP's
+[38;5;39m │ [97m[edituser]     [38;5;39m: [97mModify an existing user account
+[38;5;39m │ [97m[editall]      [38;5;39m: [97mModify all existing users accounts
+[38;5;39m │ [97m[viewplan]     [38;5;39m: [97mView a user's plan
+[38;5;39m │ [97m[users]        [38;5;39m: [97mList all users with detailed info / Account options
+[38;5;39m │ [97m[online]       [38;5;39m: [97mList currently online users
+[38;5;39m │ [97m[broadcast]    [38;5;39m: [97mSend a global message to all logged-in users
+[38;5;39m │ [97m[kick]         [38;5;39m: [97mDisconnect a user
+[38;5;39m │ [97m[firewall]     [38;5;39m: [97mManage Cloudflare-integrated firewall rules
+[38;5;39m │ [97m[apis]         [38;5;39m: [97mList available APIs
+[38;5;39m │ [97m[clearlogs]    [38;5;39m: [97mClear all logs
+[38;5;39m │ [97m[showlogs]     [38;5;39m: [97mShows Attack Logs
+[38;5;39m │ [97m[attacks]      [38;5;39m: [97mDisables and Enables attacks
+[38;5;39m │ [97m[userscount]   [38;5;39m: [97mDisplays Total Active users
+[38;5;39m │ [97m[removeuserid] [38;5;39m: [97mRemoves userid on telegrambot access
+[38;5;39m │ [97m[adduserid]    [38;5;39m: [97mAdds userid on telegrambot access
+[97m

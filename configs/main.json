@@ -1,0 +1,88 @@
+{
+    "owner_name": "",
+    "cnc_name": "",
+    "banner_message": "Welcome to Botnet\nAuthorized users and purposes only - Violators will be prosecuted \r\n\r\nAccess to this and use of system are restricted to authorized users and\r\ndesignated purposes. Unauthorized acccess or access attempts to this system,\r\nas well as use of this system for prohibited purposes are a crime. Criminal\r\ntrespass to this system will be prosecuted.\r\n\r\nTo maintain proper system operation and detect/deter unauthorized use, system\r\nadministrators may monitor this system. All user activities may be observed,\r\nrecorded, and/or subject to automated logging.\r\n\r\n * Acceptance and Agreement *\r\nContinuing past this point constitutes attestation of your authorization to\r\naccess this system, agreement that your use of this system falls within the\r\nscope of allowed purposes, and your acceptance of and consent to monitoring,\r\nlogging, and recording of your activities.\r\n\r\n * Disagreement *\r\nIf you do not agree to all of the above, you must immediately disconnect from\r\nthis system.",
+    "spinnertype": "default",
+    "defaultSpinner": [
+        "|",
+        "/",
+        "-",
+        "\\"
+    ],
+    "customSpinner": [
+        "<   3",
+        "<-  3",
+        "< - 3",
+        "<  -3"
+    ],
+    "spinnerLetterByLetter": true,
+    "key": "",
+    "api": {
+        "enabled": true,
+        "port": 8043,
+        "cert_path": "",
+        "key_path": ""
+    },
+    "ssh": {
+        "enabled": true,
+        "captcha_enabled": false,
+        "tos_enabled": true,
+        "tos_bypass_users": [
+            "root"
+        ],
+        "port": 10000
+    },
+    "mongo_url": "mongodb://",
+    "mongo_db_name": "Services",
+    "mongo_db_collection": "c2",
+    "webhook": "",
+    "telegram_token": "",
+    "whitelisted_userids": [
+        111111
+    ],
+    "proxy_enabled": true,
+    "chatId": "111111",
+    "Telegram_attackdomain": "",
+    "Attack_Endpoint": "/api/attack",
+    "Web_Endpoint": "api/attack",
+    "max_attacks": 15,
+    "max_concurrents": 15,
+    "enable_telegram_bot": false,
+    "attack_logs": true,
+    "attacks_enabled": true,
+    "webhook_enabled": false,
+    "attack_settings": {
+        "method_groups": [
+            {
+                "name": "main_network",
+                "max_slots": 5,
+                "cooldown": 0,
+                "custom_role_name": "main_network"
+            },
+            {
+                "name": "home_holder",
+                "max_slots": 20,
+                "cooldown": 0,
+                "custom_role_name": "home_holder"
+            },
+            {
+                "name": "bypass_network",
+                "max_slots": 1,
+                "cooldown": 0,
+                "custom_role_name": "bypass_network"
+            },
+            {
+                "name": "botnet_network",
+                "max_slots": 1,
+                "cooldown": 60,
+                "custom_role_name": "botnet_network"
+            },
+            {
+                "name": "homenetwork",
+                "max_slots": 4,
+                "cooldown": 0,
+                "custom_role_name": "homenetwork"
+            }
+        ]
+    }
+}

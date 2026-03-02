@@ -1,0 +1,51 @@
+[97m
+<<$total.online >> [38;5;39m:[97m <<$total.online>>[97m
+<<$total.ongoing >> [38;5;39m:[97m <<$total.ongoing>>[97m
+<<$total.attacks.count >> [38;5;39m:[97m <<$total.attacks.count>>[97m
+<<$total.attacks.latest >> [38;5;39m:[97m <<$total.attacks.latest>>[97m
+
+<<$user.username >> [38;5;39m:[97m <<$user.username>>[97m
+<<$user.ssh_client >> [38;5;39m:[97m <<$user.ssh_client>>[97m
+<<$user.connection >> [38;5;39m:[97m <<$user.connection>>[97m
+<<$user.max_daily_attacks  >> [38;5;39m:[97m <<$user.max_daily_attacks>>[97m
+<<$user.concurrents >> [38;5;39m:[97m <<$user.concurrents>>[97m
+<<$user.cooldown >> [38;5;39m:[97m <<$user.cooldown>>[97m
+<<$user.max_time >> [38;5;39m:[97m <<$user.max_time>>[97m
+<<$user.ongoing >> [38;5;39m:[97m <<$user.ongoing>>[97m
+<<$user.mfa >> [38;5;39m:[97m <<$user.mfa>>[97m
+<<$user.theme >> [38;5;39m:[97m <<$user.theme>>[97m
+
+<<$user.vip >> [38;5;39m:[97m <<$user.vip>>[97m
+<<$user.vip.expiry >> [38;5;39m:[97m <<$user.vip.expiry>>[97m
+
+<<$user.reseller >> [38;5;39m:[97m <<$user.reseller>>[97m
+<<$user.mod >> [38;5;39m:[97m <<$user.mod>>[97m
+<<$user.admin >> [38;5;39m:[97m <<$user.admin>>[97m
+<<$user.api_access >> [38;5;39m:[97m <<$user.api_access>>[97m
+
+<<$user.bypass_power_saving >> [38;5;39m:[97m <<$user.bypass_power_saving>>[97m
+<<$user.bypass_spam_protection >> [38;5;39m:[97m <<$user.bypass_spam_protection>>[97m
+<<$user.bypass_blacklist >> [38;5;39m:[97m <<$user.bypass_blacklist>>[97m
+<<$user.bypass_soft_max_time >> [38;5;39m:[97m <<$user.bypass_soft_max_time>>[97m
+
+<<$user.time_until.expiry >> [38;5;39m:[97m <<$user.time_until.expiry>>[97m
+<<$user.time_until.expiry.fmt.1 >> [38;5;39m:[97m <<$user.time_until.expiry.fmt.1>>[97m
+<<$user.time_until.expiry.fmt.2 >> [38;5;39m:[97m <<$user.time_until.expiry.fmt.2>>[97m
+<<$user.time_until.expiry.fmt.3 >> [38;5;39m:[97m <<$user.time_until.expiry.fmt.3>>[97m
+
+<<$user.time_since.creation >> [38;5;39m:[97m <<$user.time_since.creation>>[97m
+<<$user.time_since.creation.fmt.1 >> [38;5;39m:[97m <<$user.time_since.creation.fmt.1>>[97m
+<<$user.time_since.creation.fmt.2 >> [38;5;39m:[97m <<$user.time_since.creation.fmt.2>>[97m
+<<$user.time_since.creation.fmt.3 >> [38;5;39m:[97m <<$user.time_since.creation.fmt.3>>[97m
+
+<<$user.created_by >> [38;5;39m:[97m <<$user.created_by>>[97m
+<<$user.attacks.count >> [38;5;39m:[97m <<$user.attacks.count>>[97m
+<<$user.attacks.latest >> [38;5;39m:[97m <<$user.attacks.latest>>[97m
+
+<<$cnc.uptime >> [38;5;39m:[97m <<$cnc.uptime>>[97m
+<<$cnc.uptime.fmt >> [38;5;39m:[97m <<$cnc.uptime.fmt>>[97m
+<<$cnc.name >> [38;5;39m:[97m <<$cnc.name>>[97m
+
+<<$max.slots >> [38;5;39m:[97m <<$max.slots>>[97m
+<<$fake.bots >> [38;5;39m:[97m <<$fake.bots>>[97m
+

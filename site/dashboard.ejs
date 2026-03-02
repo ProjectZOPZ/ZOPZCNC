@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZOPZ STRESS | Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body style="background: #0a0a0a;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="flex justify-between items-center mb-8">
+            <h1 class="text-4xl sm:text-5xl font-semibold text-white">Dashboard</h1>
+            <a href="/login" class="bg-[#141414] border border-[#1f1f1f] text-white px-6 py-2.5 rounded text-xs font-medium uppercase hover:bg-[#1f1f1f] transition-colors">Logout</a>
+        </div>
+        <% if (typeof message !== 'undefined' && message) { %>
+            <p class="text-green-400 mb-4"><%= message %></p>
+        <% } %>
+        <% if (typeof error !== 'undefined' && error) { %>
+            <p class="text-red-400 mb-4"><%= error %></p>
+        <% } %>
+        <div class="bg-[#141414] border border-[#1f1f1f] rounded p-6 mb-6">
+            <h2 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">User Information</h2>
+            <p class="text-[#9ca3af] text-sm mb-2"><strong class="text-white">Username:</strong> <%= user.username || 'N/A' %></p>
+            <p class="text-[#9ca3af] text-sm mb-2"><strong class="text-white">Expiry:</strong> <%= user.expiry || 'N/A' %></p>
+            <p class="text-[#9ca3af] text-sm"><strong class="text-white">API Access:</strong> <%= user.api ? 'Yes' : 'No' %></p>
+        </div>
+        <div class="bg-[#141414] border border-[#1f1f1f] rounded p-6 mb-6">
+            <h2 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Initiate Attack</h2>
+            <form action="/attack" method="POST" class="space-y-4">
+                <div>
+                    <label for="host" class="block text-xs font-medium text-[#9ca3af] uppercase tracking-wider mb-2">Host</label>
+                    <input type="text" id="host" name="host" class="w-full px-4 py-2.5 bg-[#0a0a0a] border border-[#1f1f1f] rounded text-white text-sm placeholder-[#9ca3af] focus:border-[#1f1f1f] focus:outline-none transition-colors" required>
+                </div>
+                <div>
+                    <label for="port" class="block text-xs font-medium text-[#9ca3af] uppercase tracking-wider mb-2">Port</label>
+                    <input type="number" id="port" name="port" class="w-full px-4 py-2.5 bg-[#0a0a0a] border border-[#1f1f1f] rounded text-white text-sm placeholder-[#9ca3af] focus:border-[#1f1f1f] focus:outline-none transition-colors" required>
+                </div>
+                <div>
+                    <label for="time" class="block text-xs font-medium text-[#9ca3af] uppercase tracking-wider mb-2">Time (seconds)</label>
+                    <input type="number" id="time" name="time" class="w-full px-4 py-2.5 bg-[#0a0a0a] border border-[#1f1f1f] rounded text-white text-sm placeholder-[#9ca3af] focus:border-[#1f1f1f] focus:outline-none transition-colors" required>
+                </div>
+                <div>
+                    <label for="method" class="block text-xs font-medium text-[#9ca3af] uppercase tracking-wider mb-2">Method</label>
+                    <select id="method" name="method" class="w-full px-4 py-2.5 bg-[#0a0a0a] border border-[#1f1f1f] rounded text-white text-sm focus:border-[#1f1f1f] focus:outline-none transition-colors" required>
+                        <% attackMethods.forEach(method => { %>
+                            <option value="<%= method %>"><%= method %></option>
+                        <% }) %>
+                    </select>
+                </div>
+                <div>
+                    <label for="len" class="block text-xs font-medium text-[#9ca3af] uppercase tracking-wider mb-2">Length (optional)</label>
+                    <input type="number" id="len" name="len" class="w-full px-4 py-2.5 bg-[#0a0a0a] border border-[#1f1f1f] rounded text-white text-sm placeholder-[#9ca3af] focus:border-[#1f1f1f] focus:outline-none transition-colors">
+                </div>
+                <button type="submit" class="w-full bg-white text-[#0a0a0a] font-medium py-2.5 px-4 rounded transition-colors hover:bg-[#f0f0f0]">Send Attack</button>
+            </form>
+        </div>
+        <div class="bg-[#141414] border border-[#1f1f1f] rounded p-6 mb-6">
+            <h2 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Available Attack Methods</h2>
+            <ul class="list-disc pl-5 text-[#9ca3af] text-sm">
+                <% attackMethods.forEach(method => { %>
+                    <li><%= method %></li>
+                <% }) %>
+            </ul>
+        </div>
+        <div class="bg-[#141414] border border-[#1f1f1f] rounded p-6">
+            <h2 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Attack Logs</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full table-auto min-w-max">
+                    <thead>
+                        <tr class="bg-[#0f0f0f] border-b border-[#1f1f1f]">
+                            <th class="px-4 py-2 text-left text-xs font-medium text-[#9ca3af] uppercase tracking-wider">Target</th>
+                            <th class="px-4 py-2 text-left text-xs font-medium text-[#9ca3af] uppercase tracking-wider">Port</th>
+                            <th class="px-4 py-2 text-left text-xs font-medium text-[#9ca3af] uppercase tracking-wider">Method</th>
+                            <th class="px-4 py-2 text-left text-xs font-medium text-[#9ca3af] uppercase tracking-wider">Duration</th>
+                            <th class="px-4 py-2 text-left text-xs font-medium text-[#9ca3af] uppercase tracking-wider">Time Sent</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% attackLogs.forEach(log => { %>
+                            <tr class="border-b border-[#1f1f1f]">
+                                <td class="px-4 py-2 text-white text-sm"><%= log.target %></td>
+                                <td class="px-4 py-2 text-[#9ca3af] text-sm"><%= log.port %></td>
+                                <td class="px-4 py-2 text-[#9ca3af] text-sm"><%= log.method %></td>
+                                <td class="px-4 py-2 text-[#9ca3af] text-sm"><%= log.time %></td>
+                                <td class="px-4 py-2 text-[#9ca3af] text-sm"><%= log.datetime %></td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

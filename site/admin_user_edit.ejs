@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZOPZ STRESS | Edit User</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        * { font-family: 'Inter', sans-serif; }
+        body { 
+            background: #0a0a0a;
+            background-attachment: fixed;
+        }
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #141414;
+            --bg-card: #141414;
+            --border-color: #1f1f1f;
+            --border-hover: #1f1f1f;
+            --accent-primary: #ffffff;
+            --accent-secondary: #9ca3af;
+        }
+        .nav-active { 
+            background: #141414; 
+            border: 1px solid #1f1f1f; 
+        }
+        .panel { 
+            background: #141414;
+            border: 1px solid #1f1f1f;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+        .input-field { 
+            background: #0a0a0a;
+            border: 1px solid #1f1f1f;
+            backdrop-filter: blur(10px);
+        }
+        .input-field:focus { 
+            border-color: #1f1f1f;
+            outline: none;
+            ring: 2px;
+            ring-color: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="text-gray-100 min-h-screen">
+    <header class="border-b border-[#1f1f1f] bg-[#141414] sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 flex items-center justify-center bg-[#0f0f0f] rounded border border-[#1f1f1f]">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h1 class="text-xl font-semibold text-white">ZOPZ STRESS</h1>
+                </div>
+                <nav class="flex flex-wrap items-center gap-1 w-full sm:w-auto justify-center sm:justify-end">
+                    <a href="/dashboard/user" class="px-3 sm:px-4 py-2 rounded text-[#9ca3af] hover:text-white hover:bg-[#141414] border border-[#1f1f1f] transition-all flex items-center gap-2 text-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                        </svg>
+                        <span class="hidden sm:inline">Back to Dashboard</span>
+                    </a>
+                    <a href="/admin/dashboard" class="px-3 sm:px-4 py-2 rounded text-[#9ca3af] hover:text-white hover:bg-[#141414] transition-all flex items-center gap-2 text-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                        <span class="hidden sm:inline">Dashboard</span>
+                    </a>
+                    <a href="/admin/users" class="nav-active px-3 sm:px-4 py-2 rounded text-white transition-all flex items-center gap-2 text-sm">
+                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                        <span class="hidden sm:inline">Users</span>
+                    </a>
+                    <a href="/admin/attacks" class="px-3 sm:px-4 py-2 rounded text-[#9ca3af] hover:text-white hover:bg-[#141414] transition-all flex items-center gap-2 text-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                        <span class="hidden sm:inline">Attacks</span>
+                    </a>
+                    <a href="/admin/logs" class="px-3 sm:px-4 py-2 rounded text-[#9ca3af] hover:text-white hover:bg-[#141414] transition-all flex items-center gap-2 text-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        <span class="hidden sm:inline">Logs</span>
+                    </a>
+                    <a href="/api-docs" class="px-3 sm:px-4 py-2 rounded text-[#9ca3af] hover:text-white hover:bg-[#141414] transition-all flex items-center gap-2 text-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        <span class="hidden sm:inline">API Docs</span>
+                    </a>
+                </nav>
+                <a href="/login" class="px-3 py-2 text-red-400 hover:text-red-300 text-sm font-medium">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+        <div class="mb-8">
+            <a href="/admin/users" class="text-[#9ca3af] hover:text-white text-sm flex items-center gap-2 mb-4 font-medium">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                </svg>
+                Back to Users
+            </a>
+            <h1 class="text-4xl sm:text-5xl font-semibold mb-3 text-white">Edit User: <%= targetUser.username %></h1>
+            <p class="text-[#9ca3af] text-sm sm:text-base">Modify user account settings and permissions</p>
+        </div>
+
+        <% if (typeof error !== 'undefined' && error) { %>
+            <div class="mb-6 bg-[#141414] border border-red-500/30 rounded p-4 text-red-400 text-sm flex items-center gap-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+                <%= error %>
+            </div>
+        <% } %>
+
+        <div class="panel rounded-lg p-6 sm:p-8">
+            <form action="/admin/users/<%= targetUser.username %>/edit" method="POST" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-medium text-[#9ca3af] mb-2 uppercase tracking-wider">Username</label>
+                        <input type="text" value="<%= targetUser.username %>" disabled 
+                               class="input-field w-full px-4 py-3 rounded text-[#9ca3af] text-sm cursor-not-allowed">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-[#9ca3af] mb-2 uppercase tracking-wider">Role</label>
+                        <select name="role" class="input-field w-full px-4 py-3 rounded-lg text-white text-sm">
+                            <option value="user" <%= targetUser.role === 'user' ? 'selected' : '' %>>User</option>
+                            <option value="admin" <%= targetUser.role === 'admin' ? 'selected' : '' %>>Admin</option>
+                            <option value="reseller" <%= targetUser.role === 'reseller' ? 'selected' : '' %>>Reseller</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-[#9ca3af] mb-2 uppercase tracking-wider">New Password <span class="text-[#9ca3af] normal-case font-normal">(leave blank to keep current)</span></label>
+                    <input type="password" name="password" 
+                           class="input-field w-full px-4 py-3 rounded-lg text-white text-sm" 
+                           placeholder="Enter new password">
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div>
+                        <label class="block text-xs font-medium text-[#9ca3af] mb-2 uppercase tracking-wider">Max Time (seconds)</label>
+                        <input type="number" name="maxTime" value="<%= targetUser.maxTime || 300 %>" 
+                               class="input-field w-full px-4 py-3 rounded-lg text-white text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-[#9ca3af] mb-2 uppercase tracking-wider">Concurrents</label>
+                        <input type="number" name="concurrents" value="<%= targetUser.concurrents || 1 %>" 
+                               class="input-field w-full px-4 py-3 rounded-lg text-white text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-[#9ca3af] mb-2 uppercase tracking-wider">Expiry</label>
+                        <input type="text" name="expiry" value="<%= targetUser.expiry || '' %>" 
+                               class="input-field w-full px-4 py-3 rounded-lg text-white text-sm" 
+                               placeholder="MM/DD/YYYY or forever">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-[#9ca3af] mb-2 uppercase tracking-wider">Cooldown</label>
+                    <input type="number" name="cooldown" value="<%= targetUser.cooldown || 0 %>" 
+                           class="input-field w-full px-4 py-3 rounded-lg text-white text-sm">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-[#9ca3af] mb-4 uppercase tracking-wider">Permissions</label>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                        <label class="flex items-center gap-2 cursor-pointer p-3 rounded-lg hover:bg-indigo-500/5 transition-all">
+                            <input type="checkbox" name="admin" value="true" <%= targetUser.admin ? 'checked' : '' %> 
+                                   class="w-5 h-5 rounded border-[#1f1f1f] bg-[#0a0a0a] text-white focus:ring-white focus:ring-offset-[#0a0a0a]">
+                            <span class="text-sm text-white font-medium">Admin</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer p-3 rounded-xl hover:bg-cyan-500/5 transition-all">
+                            <input type="checkbox" name="reseller" value="true" <%= targetUser.reseller ? 'checked' : '' %> 
+                                   class="w-5 h-5 rounded border-[#1f1f1f] bg-[#0a0a0a] text-white focus:ring-white focus:ring-offset-[#0a0a0a]">
+                            <span class="text-sm text-white font-medium">Reseller</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer p-3 rounded-xl hover:bg-cyan-500/5 transition-all">
+                            <input type="checkbox" name="api" value="true" <%= targetUser.api ? 'checked' : '' %> 
+                                   class="w-5 h-5 rounded border-[#1f1f1f] bg-[#0a0a0a] text-white focus:ring-white focus:ring-offset-[#0a0a0a]">
+                            <span class="text-sm text-white font-medium">API Access</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer p-3 rounded-xl hover:bg-cyan-500/5 transition-all">
+                            <input type="checkbox" name="vip" value="true" <%= targetUser.vip ? 'checked' : '' %> 
+                                   class="w-5 h-5 rounded border-[#1f1f1f] bg-[#0a0a0a] text-white focus:ring-white focus:ring-offset-[#0a0a0a]">
+                            <span class="text-sm text-white font-medium">VIP</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer p-3 rounded-xl hover:bg-cyan-500/5 transition-all">
+                            <input type="checkbox" name="botnet" value="true" <%= targetUser.botnet ? 'checked' : '' %> 
+                                   class="w-5 h-5 rounded border-[#1f1f1f] bg-[#0a0a0a] text-white focus:ring-white focus:ring-offset-[#0a0a0a]">
+                            <span class="text-sm text-white font-medium">Botnet</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer p-3 rounded-xl hover:bg-cyan-500/5 transition-all">
+                            <input type="checkbox" name="homeholder" value="true" <%= targetUser.homeholder ? 'checked' : '' %> 
+                                   class="w-5 h-5 rounded border-[#1f1f1f] bg-[#0a0a0a] text-white focus:ring-white focus:ring-offset-[#0a0a0a]">
+                            <span class="text-sm text-white font-medium">Homeholder</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer p-3 rounded-xl hover:bg-cyan-500/5 transition-all">
+                            <input type="checkbox" name="spambypass" value="true" <%= targetUser.spambypass ? 'checked' : '' %> 
+                                   class="w-5 h-5 rounded border-[#1f1f1f] bg-[#0a0a0a] text-white focus:ring-white focus:ring-offset-[#0a0a0a]">
+                            <span class="text-sm text-white font-medium">Spam Bypass</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer p-3 rounded-xl hover:bg-cyan-500/5 transition-all">
+                            <input type="checkbox" name="blacklistbypass" value="true" <%= targetUser.blacklistbypass ? 'checked' : '' %> 
+                                   class="w-5 h-5 rounded border-[#1f1f1f] bg-[#0a0a0a] text-white focus:ring-white focus:ring-offset-[#0a0a0a]">
+                            <span class="text-sm text-white font-medium">Blacklist Bypass</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-center gap-4 pt-6 border-t border-[#1f1f1f]">
+                    <button type="submit" 
+                            class="w-full sm:w-auto px-8 py-3.5 bg-white text-[#0a0a0a] font-semibold rounded transition-all duration-300 text-sm hover:bg-[#f0f0f0]">
+                        Save Changes
+                    </button>
+                    <a href="/admin/users" 
+                       class="w-full sm:w-auto px-8 py-3.5 bg-[#141414] border border-[#1f1f1f] hover:border-[#1f1f1f] text-[#9ca3af] font-semibold rounded transition-all duration-300 text-sm">
+                        Cancel
+                    </a>
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

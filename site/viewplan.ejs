@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZOPZ STRESS | Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        * { font-family: 'Inter', sans-serif; }
+        body {
+            background: #0a0a0a;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #141414;
+            --bg-card: #141414;
+            --border-color: #1f1f1f;
+            --border-hover: #1f1f1f;
+            --accent-primary: #ffffff;
+            --accent-secondary: #9ca3af;
+        }
+        .info-card {
+            background: #141414;
+            border: 1px solid #1f1f1f;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+        .info-card:hover {
+            border-color: #1f1f1f;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        .btn-gradient {
+            background: white;
+            color: #0a0a0a;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .btn-gradient:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            background: #f0f0f0;
+        }
+    </style>
+</head>
+<body class="text-gray-100">
+    <!-- Header -->
+    <header class="border-b border-[#1f1f1f] bg-[#141414] sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-semibold text-white">ZOPZ STRESS</h1>
+            <a href="/login" class="px-4 py-2 rounded btn-gradient">Logout</a>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+        <!-- Messages -->
+        <% if (typeof message !== 'undefined' && message) { %>
+            <div class="mb-6 bg-[#141414] border border-green-500/30 rounded p-4 text-green-400 text-sm flex items-center gap-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <%= message %>
+            </div>
+        <% } %>
+        <% if (typeof error !== 'undefined' && error) { %>
+            <div class="mb-6 bg-[#141414] border border-red-500/30 rounded p-4 text-red-400 text-sm flex items-center gap-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+                <%= error %>
+            </div>
+        <% } %>
+
+        <!-- User Info Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            <div class="info-card rounded-2xl p-6">
+                <div class="text-xs text-[#9ca3af] mb-3 font-medium uppercase tracking-wider">Username</div>
+                <div class="text-2xl font-black text-white"><%= user.username || 'N/A' %></div>
+            </div>
+            <div class="info-card rounded-2xl p-6">
+                <div class="text-xs text-cyan-400 mb-3 font-bold uppercase tracking-wider">Plan</div>
+                <div class="text-2xl font-black text-white"><%= user.plan || 'Normal' %></div>
+            </div>
+            <div class="info-card rounded-2xl p-6">
+                <div class="text-xs text-cyan-400 mb-3 font-bold uppercase tracking-wider">Expiry</div>
+                <div class="text-2xl font-black text-white"><%= user.expiry || 'N/A' %></div>
+            </div>
+            <div class="info-card rounded-2xl p-6">
+                <div class="text-xs text-cyan-400 mb-3 font-bold uppercase tracking-wider">Max Time</div>
+                <div class="text-2xl font-black text-white"><%= user.maxTime || 'N/A' %>s</div>
+            </div>
+            <div class="info-card rounded-2xl p-6">
+                <div class="text-xs text-cyan-400 mb-3 font-bold uppercase tracking-wider">Concurrents</div>
+                <div class="text-2xl font-black text-white"><%= user.concurrents || 'N/A' %></div>
+            </div>
+            <div class="info-card rounded-2xl p-6">
+                <div class="text-xs text-cyan-400 mb-3 font-bold uppercase tracking-wider">API Access</div>
+                <div class="flex items-center gap-2">
+                    <% if (user.api) { %>
+                        <span class="text-emerald-400 font-black text-lg">Yes</span>
+                    <% } else { %>
+                        <span class="text-red-400 font-black text-lg">No</span>
+                    <% } %>
+                </div>
+            </div>
+            <div class="info-card rounded-2xl p-6">
+                <div class="text-xs text-cyan-400 mb-3 font-bold uppercase tracking-wider">Admin</div>
+                <div class="flex items-center gap-2">
+                    <% if (user.admin) { %>
+                        <span class="text-emerald-400 font-black text-lg">Yes</span>
+                    <% } else { %>
+                        <span class="text-red-400 font-black text-lg">No</span>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

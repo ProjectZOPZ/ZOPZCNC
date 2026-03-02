@@ -1,0 +1,1610 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZOPZ STRESS | Contact & Pricing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * { 
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg-primary: #0f1117;
+            --bg-secondary: #1a1d29;
+            --bg-card: #1e2132;
+            --text-primary: #ffffff;
+            --text-secondary: #cbd5e1;
+            --text-tertiary: #94a3b8;
+            --accent-blue: #3b82f6;
+            --accent-blue-bright: #60a5fa;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+            --accent-yellow: #f59e0b;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+
+        body { 
+            background: linear-gradient(135deg, var(--bg-primary) 0%, #0a0d14 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Modern background shapes */
+        body::before {
+            content: '';
+            position: fixed;
+            bottom: -20%;
+            right: -10%;
+            width: 60%;
+            height: 80%;
+            background: radial-gradient(ellipse, rgba(59, 130, 246, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            filter: blur(60px);
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: -20%;
+            left: -10%;
+            width: 50%;
+            height: 60%;
+            background: radial-gradient(ellipse, rgba(139, 92, 246, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            filter: blur(60px);
+        }
+
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(15, 17, 23, 0.8);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.25rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-bright));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.125rem;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover .logo-icon {
+            transform: rotate(5deg) scale(1.05);
+            box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-main {
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .logo-main .logo-white {
+            color: var(--text-primary);
+        }
+
+        .logo-main .logo-blue {
+            color: var(--accent-blue);
+        }
+
+        .logo-sub {
+            font-size: 0.625rem;
+            color: var(--text-tertiary);
+            font-weight: 500;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9375rem;
+            position: relative;
+            transition: color 0.2s;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-blue-bright);
+        }
+
+        .nav-link.active {
+            color: var(--accent-blue);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent-blue);
+            border-radius: 1px;
+        }
+
+        .header-buttons {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .btn-social {
+            padding: 0.625rem 1.25rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-discord {
+            background: transparent;
+            border: 2px solid var(--accent-blue);
+            color: var(--accent-blue);
+        }
+
+        .btn-discord:hover {
+            background: var(--accent-blue);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-telegram {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-bright));
+            border: 2px solid transparent;
+            color: white;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-telegram:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+            background: linear-gradient(135deg, var(--accent-blue-bright), #93c5fd);
+        }
+
+        .btn-signin {
+            padding: 0.625rem 1.25rem;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-bright));
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-signin:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+            background: linear-gradient(135deg, var(--accent-blue-bright), #93c5fd);
+        }
+
+        .content {
+            display: none;
+            padding: 4rem 2rem;
+            min-height: calc(100vh - 80px);
+            position: relative;
+            z-index: 1;
+        }
+
+        .content.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .page-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-blue-bright) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .section-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-title i {
+            color: var(--accent-blue);
+            font-size: 1.25rem;
+        }
+
+        .card {
+            background: rgba(30, 33, 50, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .card-header {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--border-color);
+            background: rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(10px);
+        }
+
+        .card-content {
+            padding: 2rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            padding: 1.5rem;
+            background: rgba(26, 29, 41, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .contact-item:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+            background: rgba(26, 29, 41, 0.8);
+        }
+
+        .contact-icon {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-bright));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: white;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover .contact-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-label {
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+            margin-bottom: 0.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+
+        .contact-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9375rem;
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .resource-item {
+            display: flex;
+            align-items: center;
+            padding: 1.5rem;
+            background: rgba(26, 29, 41, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .resource-item:hover {
+            border-color: var(--accent-green);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3);
+            background: rgba(26, 29, 41, 0.8);
+        }
+
+        .resource-icon {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent-green), #34d399);
+            margin-right: 1rem;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .resource-item:hover .resource-icon {
+            transform: scale(1.1) rotate(-5deg);
+            box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4);
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3rem;
+            background: rgba(30, 33, 50, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 0.5rem;
+            gap: 0.5rem;
+            border: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            box-shadow: var(--shadow-md);
+        }
+
+        .tab {
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            white-space: nowrap;
+        }
+
+        .tab:hover {
+            background: rgba(59, 130, 246, 0.15);
+            color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        .tab.active {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-bright));
+            color: white;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+        }
+
+        .pricing-content {
+            display: none;
+        }
+
+        .pricing-content.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .pricing-section {
+            margin-bottom: 4rem;
+        }
+
+        .pricing-section-title {
+            font-size: clamp(1.75rem, 4vw, 2.25rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .pricing-section-description {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 0.9375rem;
+            line-height: 1.7;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .price-card {
+            background: rgba(30, 33, 50, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow-md);
+        }
+
+        .price-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent-blue);
+            box-shadow: 0 12px 32px rgba(59, 130, 246, 0.25);
+            background: rgba(30, 33, 50, 0.8);
+        }
+
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem 1rem;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .price-card:hover .chip {
+            transform: scale(1.05);
+        }
+
+        .chip-basic { background: var(--accent-blue); }
+        .chip-day { background: var(--accent-red); }
+        .chip-monthly { background: var(--accent-green); }
+        .chip-lifetime { background: #8b5cf6; }
+        .chip-pro { background: #8b5cf6; }
+        .chip-elite { background: var(--accent-yellow); }
+        .chip-service { background: var(--accent-green); }
+        .chip-support { background: var(--accent-red); }
+        
+        .price-card h3 {
+            font-size: 1.375rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .price-details {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 0.9375rem;
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        .price-details .feature {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.875rem;
+            gap: 0.75rem;
+        }
+
+        .price-details i {
+            color: var(--accent-blue);
+            font-size: 1rem;
+            flex-shrink: 0;
+            margin-top: 0.125rem;
+        }
+
+        .price-amount {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-bright));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-top: 1.5rem;
+            font-family: 'Inter', monospace;
+            transition: all 0.3s ease;
+        }
+
+        .price-card:hover .price-amount {
+            transform: scale(1.05);
+        }
+
+        .payment-methods {
+            background: rgba(30, 33, 50, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-top: 4rem;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+        }
+
+        .payment-methods h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .payment-list {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .payment-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 1.5rem;
+            background: rgba(26, 29, 41, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .payment-item:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-blue);
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+            background: rgba(26, 29, 41, 0.8);
+        }
+
+        .payment-icon {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-bright));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.875rem;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .payment-item:hover .payment-icon {
+            transform: scale(1.15) rotate(10deg);
+        }
+
+        .service-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-bright));
+            border: none;
+            color: white;
+            font-weight: 600;
+            font-size: 0.875rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .service-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
+            background: linear-gradient(135deg, var(--accent-blue-bright), #93c5fd);
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .mt-8 { margin-top: 2rem; }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content { 
+                padding: 1rem 1.5rem; 
+                flex-wrap: wrap;
+            }
+            
+            .nav-links {
+                gap: 1.5rem;
+                font-size: 0.875rem;
+            }
+            
+            .header-buttons {
+                width: 100%;
+                justify-content: center;
+                margin-top: 1rem;
+            }
+            
+            .card-content { 
+                padding: 1.5rem; 
+            }
+            
+            .card-header { 
+                padding: 1.25rem 1.5rem; 
+            }
+            
+            .pricing-grid { 
+                grid-template-columns: 1fr; 
+            }
+            
+            .contact-grid { 
+                grid-template-columns: 1fr; 
+            }
+            
+            .resource-grid { 
+                grid-template-columns: 1fr; 
+            }
+            
+            .content { 
+                padding: 2.5rem 1.5rem; 
+            }
+            
+            .page-title {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 0.5rem;
+                width: 100%;
+            }
+            
+            .header-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .btn-social {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="/" class="logo">
+                <div class="logo-icon">Z</div>
+                <div class="logo-text">
+                    <div class="logo-main">
+                        <span class="logo-white">ZOPZ</span><span class="logo-blue">STRESS</span>
+                    </div>
+                    <div class="logo-sub">ZOPZServices</div>
+                </div>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#" class="nav-link active" onclick="showTab('contact'); return false;">Contact</a></li>
+                    <li><a href="#" class="nav-link" onclick="showTab('pricing'); return false;">Pricing</a></li>
+                </ul>
+            </nav>
+            <div class="header-buttons">
+                <a href="https://discord.com/users/zopz" target="_blank" class="btn-social btn-discord">
+                    <i class="ri-discord-fill"></i>
+                    Discord
+                </a>
+                <a href="/login" class="btn-signin">
+                    <i class="ri-login-box-line"></i>
+                    Sign in
+                </a>
+                <a href="https://t.me/+4GM4Vn1q8YA3MWNh" target="_blank" class="btn-social btn-telegram">
+                    <i class="ri-telegram-fill"></i>
+                    Telegram
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Contact Section -->
+        <div id="contact" class="content active">
+            <div class="container">
+                <h1 class="page-title">Get in Touch</h1>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="section-title">
+                            <i class="ri-customer-service-2-line"></i>
+                            Direct Contact
+                        </h2>
+                    </div>
+                    <div class="card-content">
+                        <div class="contact-grid">
+                            <a href="https://discord.com/users/zopz" target="_blank" class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="ri-discord-fill"></i>
+                                </div>
+                                <div class="contact-info">
+                                    <div class="contact-label">Discord</div>
+                                    <div class="contact-link">zopz.</div>
+                                </div>
+                                <i class="ri-external-link-line" style="color: var(--text-tertiary);"></i>
+                            </a>
+                            <a href="https://instagram.com/zopzc2" target="_blank" class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="ri-instagram-line"></i>
+                                </div>
+                                <div class="contact-info">
+                                    <div class="contact-label">Instagram</div>
+                                    <div class="contact-link">@zopzc2</div>
+                                </div>
+                                <i class="ri-external-link-line" style="color: var(--text-tertiary);"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="section-title">
+                            <i class="ri-telegram-line"></i>
+                            Service Channels
+                        </h2>
+                    </div>
+                    <div class="card-content">
+                        <div class="contact-grid">
+                            <a href="https://t.me/+4GM4Vn1q8YA3MWNh" target="_blank" class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="ri-code-line"></i>
+                                </div>
+                                <div class="contact-info">
+                                    <div class="contact-label">Telegram</div>
+                                    <div class="contact-link">ZOPZ API Channel</div>
+                                </div>
+                                <i class="ri-external-link-line" style="color: var(--text-tertiary);"></i>
+                            </a>
+                            <a href="https://t.me/+4GM4Vn1q8YA3MWNh" target="_blank" class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="ri-terminal-box-line"></i>
+                                </div>
+                                <div class="contact-info">
+                                    <div class="contact-label">Telegram</div>
+                                    <div class="contact-link">ZOPZ C2 Channel</div>
+                                </div>
+                                <i class="ri-external-link-line" style="color: var(--text-tertiary);"></i>
+                            </a>
+                            <a href="https://t.me/+jbh2JzEl8iI5MmUx" target="_blank" class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="ri-database-2-line"></i>
+                                </div>
+                                <div class="contact-info">
+                                    <div class="contact-label">Telegram</div>
+                                    <div class="contact-link">ZOPZ TLO Channel</div>
+                                </div>
+                                <i class="ri-external-link-line" style="color: var(--text-tertiary);"></i>
+                            </a>
+                            <a href="https://t.me/+4GM4Vn1q8YA3MWNh" target="_blank" class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="ri-server-line"></i>
+                                </div>
+                                <div class="contact-info">
+                                    <div class="contact-label">Telegram</div>
+                                    <div class="contact-link">ZOPZ CNC Channel</div>
+                                </div>
+                                <i class="ri-external-link-line" style="color: var(--text-tertiary);"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="section-title">
+                            <i class="ri-links-line"></i>
+                            Additional Resources
+                        </h2>
+                    </div>
+                    <div class="card-content">
+                        <div class="resource-grid">
+                            <a href="https://t.me/zopzvouches" target="_blank" class="resource-item">
+                                <div class="resource-icon">
+                                    <i class="ri-verified-badge-line"></i>
+                                </div>
+                                <div class="resource-text">Service Vouches</div>
+                                <i class="ri-external-link-line" style="color: var(--text-tertiary); margin-left: auto;"></i>
+                            </a>
+                            <a href="https://zopzsniff.xyz/" target="_blank" class="resource-item">
+                                <div class="resource-icon">
+                                    <i class="ri-radar-line"></i>
+                                </div>
+                                <div class="resource-text">ZOPZ SNIFF Site</div>
+                                <i class="ri-external-link-line" style="color: var(--text-tertiary); margin-left: auto;"></i>
+                            </a>
+                            <a href="https://discord.zopzsniff.xyz/" target="_blank" class="resource-item">
+                                <div class="resource-icon">
+                                    <i class="ri-discord-line"></i>
+                                </div>
+                                <div class="resource-text">Discord Server</div>
+                                <i class="ri-external-link-line" style="color: var(--text-tertiary); margin-left: auto;"></i>
+                            </a>
+                            <a href="https://zopztlo.zopzstress.st/" target="_blank" class="resource-item">
+                                <div class="resource-icon">
+                                    <i class="ri-database-line"></i>
+                                </div>
+                                <div class="resource-text">ZOPZ TLO</div>
+                                <i class="ri-external-link-line" style="color: var(--text-tertiary); margin-left: auto;"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pricing Section -->
+        <div id="pricing" class="content">
+            <div class="container">
+                <h1 class="page-title">Pricing Plans</h1>
+                
+                <div class="tabs">
+                    <button class="tab active" onclick="showPricing('zopz')" data-pricing="zopz">
+                        ZOPZ (C2 | API)
+                    </button>
+                    <button class="tab" onclick="showPricing('zopztlo')" data-pricing="zopztlo">
+                        ZOPZTLO (Site | API)
+                    </button>
+                    <button class="tab" onclick="showPricing('cnc')" data-pricing="cnc">
+                        CNC (ZOPZ CNC)
+                    </button>
+                    <button class="tab" onclick="showPricing('zopzpanel')" data-pricing="zopzpanel">
+                        ZOPZ Panel
+                    </button>
+                    <button class="tab" onclick="showPricing('zopzsniff')" data-pricing="zopzsniff">
+                        ZOPZ SNIFF
+                    </button>
+                    <button class="tab" onclick="showPricing('exchanges')" data-pricing="exchanges">
+                        Exchanges
+                    </button>
+                </div>
+
+                <!-- ZOPZ Pricing -->
+                <div id="zopz" class="pricing-content active">
+                    <div class="card">
+                        <div class="card-content">
+                            <!-- Basic Plans -->
+                            <div class="pricing-section">
+                                <h3 class="pricing-section-title">Basic Plans</h3>
+                                <p class="pricing-section-description">Perfect for getting started with essential features and limited concurrent usage. These plans offer the fundamental capabilities you need to begin your journey.</p>
+                                <div class="pricing-grid">
+                                    <div class="price-card">
+                                        <div class="chip chip-basic">Basic</div>
+                                        <h3>Level 1</h3>
+                                        <div class="price-details">
+                                            <div class="feature"><i class="ri-flashlight-line"></i>1 Concurrent</div>
+                                            <div class="feature"><i class="ri-time-line"></i>60 Seconds</div>
+                                        </div>
+                                        <div class="price-amount">$20.00/month</div>
+                                    </div>
+                                    <div class="price-card">
+                                        <div class="chip chip-basic">Basic</div>
+                                        <h3>Level 2</h3>
+                                        <div class="price-details">
+                                            <div class="feature"><i class="ri-flashlight-line"></i>3 Concurrents</div>
+                                            <div class="feature"><i class="ri-time-line"></i>120 Seconds</div>
+                                        </div>
+                                        <div class="price-amount">$40.00/month</div>
+                                    </div>
+                                    <div class="price-card">
+                                        <div class="chip chip-basic">Basic</div>
+                                        <h3>Level 3</h3>
+                                        <div class="price-details">
+                                            <div class="feature"><i class="ri-flashlight-line"></i>4 Concurrents</div>
+                                            <div class="feature"><i class="ri-time-line"></i>300 Seconds</div>
+                                        </div>
+                                        <div class="price-amount">$80.00/month</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 1 Day Plans -->
+                            <div class="pricing-section">
+                                <h3 class="pricing-section-title">1 Day HomeHolder Plans</h3>
+                                <p class="pricing-section-description">Extended plans with maximum time limits for power users. Perfect for intensive usage scenarios requiring extended operational periods.</p>
+                                <div class="pricing-grid">
+                                    <div class="price-card">
+                                        <div class="chip chip-day">1-Day</div>
+                                        <h3>Level 1</h3>
+                                        <div class="price-details">
+                                            <div class="feature"><i class="ri-flashlight-line"></i>5 Concurrents</div>
+                                            <div class="feature"><i class="ri-time-line"></i>86400 Seconds</div>
+                                        </div>
+                                        <div class="price-amount">$60.00/month</div>
+                                    </div>
+                                    <div class="price-card">
+                                        <div class="chip chip-day">1-Day</div>
+                                        <h3>Level 2</h3>
+                                        <div class="price-details">
+                                            <div class="feature"><i class="ri-flashlight-line"></i>6 Concurrents</div>
+                                            <div class="feature"><i class="ri-time-line"></i>86400 Seconds</div>
+                                        </div>
+                                        <div class="price-amount">$70.00/month</div>
+                                    </div>
+                                    <div class="price-card">
+                                        <div class="chip chip-day">1-Day</div>
+                                        <h3>Level 3</h3>
+                                        <div class="price-details">
+                                            <div class="feature"><i class="ri-flashlight-line"></i>7 Concurrents</div>
+                                            <div class="feature"><i class="ri-time-line"></i>86400 Seconds</div>
+                                        </div>
+                                        <div class="price-amount">$80.00/month</div>
+                                    </div>
+                                    <div class="price-card">
+                                        <div class="chip chip-day">1-Day</div>
+                                        <h3>Level 4</h3>
+                                        <div class="price-details">
+                                            <div class="feature"><i class="ri-flashlight-line"></i>10 Concurrents</div>
+                                            <div class="feature"><i class="ri-time-line"></i>86400 Seconds</div>
+                                        </div>
+                                        <div class="price-amount">$100.00/month</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Monthly Add-ons -->
+                            <div class="pricing-section">
+                                <h3 class="pricing-section-title">Monthly Add-ons</h3>
+                                <p class="pricing-section-description">Enhance your plan with additional features and capabilities on a monthly subscription basis. Perfect for flexible enhancement needs.</p>
+                                <div class="pricing-grid">
+                                    <div class="price-card">
+                                        <div class="chip chip-monthly">Monthly</div>
+                                        <h3>Extra Time (+60s)</h3>
+                                        <div class="price-details">
+                                            <div class="feature"><i class="ri-add-circle-line"></i>Additional 60 Seconds</div>
+                                        </div>
+                                        <div class="price-amount">$10.00</div>
+                                    </div>
+                                    <div class="price-card">
+                                        <div class="chip chip-monthly">Monthly</div>
+                                        <h3>Extra Concurrent</h3>
+                                        <div class="price-details">
+                                            <div class="feature"><i class="ri-add-circle-line"></i>Additional Concurrent</div>
+                                        </div>
+                                        <div class="price-amount">$10.00</div>
+                                    </div>
+                                    <div class="price-card">
+                                        <div class="chip chip-monthly">Monthly</div>
+                                        <h3>Blacklist Bypass</h3>
+                                        <div class="price-details">
+                                            <div class="feature"><i class="ri-shield-check-line"></i>Blacklist Bypass</div>
+                                        </div>
+                                        <div class="price-amount">$80.00</div>
+                                    </div>
+                                    <div class="price-card">
+                                        <div class="chip chip-monthly">Monthly</div>
+                                        <h3>Spam Bypass</h3>
+                                        <div class="price-details">
+                                            <div class="feature"><i class="ri-shield-star-line"></i>Spam Bypass</div>
+                                        </div>
+                                        <div class="price-amount">$100.00</div>
+                                    </div>
+                                    <div class="price-card">
+                                        <div class="chip chip-monthly">Monthly</div>
+                                        <h3>API Access</h3>
+                                        <div class="price-details">
+                                            <div class="feature"><i class="ri-shield-star-line"></i>API Access</div>
+                                        </div>
+                                        <div class="price-amount">$30.00</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Payment Methods -->
+                            <div class="payment-methods">
+                                <h3>
+                                    <i class="ri-bank-card-line"></i>
+                                    Payment Methods
+                                </h3>
+                                <div class="payment-list">
+                                    <div class="payment-item">
+                                        <div class="payment-icon">
+                                            <i class="ri-cash-line"></i>
+                                        </div>
+                                        <span>Cashapp</span>
+                                    </div>
+                                    <div class="payment-item">
+                                        <div class="payment-icon">
+                                            <i class="ri-money-dollar-circle-line"></i>
+                                        </div>
+                                        <span>Venmo</span>
+                                    </div>
+                                    <div class="payment-item">
+                                        <div class="payment-icon">
+                                            <i class="ri-money-dollar-circle-line"></i>
+                                        </div>
+                                        <span>Paypal</span>
+                                    </div>
+                                    <div class="payment-item">
+                                        <div class="payment-icon">
+                                            <i class="ri-bit-coin-line"></i>
+                                        </div>
+                                        <span>Crypto</span>
+                                   </div>
+                                    <div class="payment-item">
+                                        <div class="payment-icon">
+                                            <i class="ri-bit-coin-line"></i>
+                                        </div>
+                                        <span>giftcard - amazon</span>
+                                    </div>
+                                    <div class="payment-item">
+                                        <div class="payment-icon">
+                                            <i class="ri-bit-coin-line"></i>
+                                        </div>
+                                        <span>giftcard - mastercard</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ZOPZTLO Pricing -->
+                <div id="zopztlo" class="pricing-content">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="pricing-section">
+                                <h3 class="pricing-section-title">ZOPZTLO Plans</h3>
+                                <p class="pricing-section-description">
+                                    Site and API access with flexible search credit options. Choose a plan or purchase additional credits as needed.
+                                </p>
+
+                                <!-- Main Plans -->
+                                <div class="pricing-grid">
+                                    <div class="price-card">
+                                        <div class="chip chip-basic">Basic</div>
+                                        <h3>Basic Plan</h3>
+                                        <div class="price-details">
+                                            <div class="feature"><i class="ri-search-line"></i>Unlimited Search Credits/Month</div>
+                                            <div class="feature"><i class="ri-calendar-line"></i>Monthly Billing</div>
+                                            <div class="feature"><i class="ri-customer-service-2-line"></i>Contact Support to Purchase</div>
+                                        </div>
+                                        <div class="price-amount">$20.00/month</div>
+                                    </div>
+
+                                    <div class="price-card">
+                                        <div class="chip chip-pro">Pro</div>
+                                        <h3>Pro Plan</h3>
+                                        <div class="price-details">
+                                            <div class="feature"><i class="ri-search-line"></i>Unlimited Search Credits/Month</div>
+                                            <div class="feature"><i class="ri-calendar-line"></i>Quarterly Billing</div>
+                                            <div class="feature"><i class="ri-customer-service-2-line"></i>Contact Support to Purchase</div>
+                                        </div>
+                                        <div class="price-amount">$60.00/Quarterly</div>
+                                    </div>
+
+                                    <div class="price-card">
+                                        <div class="chip chip-lifetime">Lifetime</div>
+                                        <h3>Lifetime Plan</h3>
+                                        <div class="price-details">
+                                            <div class="feature"><i class="ri-infinity-line"></i>Unlimited Search Credits</div>
+                                            <div class="feature"><i class="ri-bank-card-line"></i>One-time Payment</div>
+                                            <div class="feature"><i class="ri-customer-service-2-line"></i>Contact Support to Purchase</div>
+                                        </div>
+                                        <div class="price-amount">$500.00</div>
+                                    </div>
+                                </div>
+
+                                <!-- Blacklist Plans -->
+                                <h3 class="pricing-section-title mt-8">Blacklist Plans</h3>
+                                <div class="pricing-grid">
+                                    <div class="price-card">
+                                        <div class="chip chip-basic">Blacklist Monthly</div>
+                                        <h3>Monthly Blacklist</h3>
+                                        <div class="price-details">
+                                            <div class="feature"><i class="ri-shield-check-line"></i>Blacklist Checks (1 credit each)</div>
+                                            <div class="feature"><i class="ri-calendar-line"></i>Monthly Billing</div>
+                                            <div class="feature"><i class="ri-customer-service-2-line"></i>Contact Support to Purchase</div>
+                                        </div>
+                                        <div class="price-amount">$20.00/month</div>
+                                    </div>
+
+                                    <div class="price-card">
+                                        <div class="chip chip-lifetime">Blacklist Lifetime</div>
+                                        <h3>Lifetime Blacklist</h3>
+                                        <div class="price-details">
+                                            <div class="feature"><i class="ri-shield-check-line"></i>Blacklist Checks (1 credit each)</div>
+                                            <div class="feature"><i class="ri-bank-card-line"></i>One-time Payment</div>
+                                            <div class="feature"><i class="ri-customer-service-2-line"></i>Contact Support to Purchase</div>
+                                        </div>
+                                        <div class="price-amount">$50.00</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CNC Pricing -->
+                <div id="cnc" class="pricing-content">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="pricing-section">
+                                <h3 class="pricing-section-title">CNC Plans</h3>
+                                <p class="pricing-section-description">ZOPZ CNC access and support services. Comprehensive solutions for command and control operations with professional support options. What we have to offer:</p>
+                                <div class="pricing-grid">
+                                    <div class="price-card">
+                                        <div class="chip chip-lifetime">Lifetime</div>
+                                        <h3>AIO Access</h3>
+                                        <div class="price-details">
+                                            <div class="feature"><i class="ri-infinity-line"></i>Full access forever</div>
+                                            <div class="feature"><i class="ri-shield-check-line"></i>Complete feature set</div>
+                                        </div>
+                                        <div class="price-amount">$200.00</div>
+                                    </div>
+                                    <div class="price-card">
+                                        <div class="chip chip-basic">Monthly</div>
+                                        <h3>AIO Access</h3>
+                                        <div class="price-details">
+                                            <div class="feature"><i class="ri-refresh-line"></i>Monthly subscription</div>
+                                            <div class="feature"><i class="ri-shield-check-line"></i>Full feature access</div>
+                                        </div>
+                                        <div class="price-amount">$10.00</div>
+                                    </div>
+                                    <div class="price-card">
+                                        <div class="chip chip-service">Service</div>
+                                        <h3>Key Resets</h3>
+                                        <div class="price-details">
+                                            <div class="feature"><i class="ri-refresh-line"></i>Per reset service</div>
+                                            <div class="feature"><i class="ri-customer-service-2-line"></i>Professional handling</div>
+                                        </div>
+                                        <div class="price-amount">$10.00</div>
+                                    </div>
+                                    <div class="price-card">
+                                        <div class="chip chip-support">Support</div>
+                                        <h3>Technical Support</h3>
+                                        <div class="price-details">
+                                            <div class="feature"><i class="ri-customer-service-line"></i>Per session support</div>
+                                            <div class="feature"><i class="ri-question-answer-line"></i>Expert assistance</div>
+                                        </div>
+                                        <div class="price-amount">$10-$15</div>
+                                    </div>
+                                </div>
+                                <div class="button-container">
+                                    <button class="service-button" onclick="window.open('https://pastebin.com/raw/QWhPEC3B', '_blank')">
+                                        <i class="ri-file-text-line"></i>
+                                        View Details on Pastebin
+                                        <i class="ri-external-link-line"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ZOPZ Panel Pricing -->
+                <div id="zopzpanel" class="pricing-content">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="pricing-section">
+                                <h3 class="pricing-section-title">ZOPZ Panel</h3>
+                                <p class="pricing-section-description">ZOPZ Panel is the same as the API and C2. Please refer to the ZOPZ (C2 | API) tab for pricing and details.</p>
+                                <div style="text-align: center; margin-top: 2rem;">
+                                    <button class="service-button" onclick="showPricing('zopz')">
+                                        <i class="ri-arrow-left-line"></i>
+                                        View ZOPZ (C2 | API) Pricing
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ZOPZ SNIFF Pricing -->
+                <div id="zopzsniff" class="pricing-content">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="pricing-section">
+                                <h3 class="pricing-section-title">ZOPZ SNIFF</h3>
+                                <p class="pricing-section-description">Advanced network analysis and gaming platform tools with comprehensive features for Xbox, PlayStation, and Rec Room.</p>
+                                
+                                <div class="card" style="margin-top: 2rem; margin-bottom: 2rem;">
+                                    <div class="card-header">
+                                        <h2 class="section-title">
+                                            <i class="ri-settings-3-line"></i>
+                                            General Features
+                                        </h2>
+                                    </div>
+                                    <div class="card-content">
+                                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; color: var(--text-secondary);">
+                                            <div style="display: flex; align-items: center; gap: 0.75rem;"><i class="ri-group-line" style="color: var(--accent-blue); font-size: 1.125rem;"></i>Xbox Live Party Tool – Interact/manage parties</div>
+                                            <div style="display: flex; align-items: center; gap: 0.75rem;"><i class="ri-search-line" style="color: var(--accent-blue); font-size: 1.125rem;"></i>IP to PSN/Xbox Lookup – Resolve profiles</div>
+                                            <div style="display: flex; align-items: center; gap: 0.75rem;"><i class="ri-link-line" style="color: var(--accent-blue); font-size: 1.125rem;"></i>Xbox/PSN to IP – Find linked IPs</div>
+                                            <div style="display: flex; align-items: center; gap: 0.75rem;"><i class="ri-lock-unlock-line" style="color: var(--accent-blue); font-size: 1.125rem;"></i>Gamertag Decryption – Decode encrypted gamertags</div>
+                                            <div style="display: flex; align-items: center; gap: 0.75rem;"><i class="ri-bookmark-line" style="color: var(--accent-blue); font-size: 1.125rem;"></i>Label Saver – Save/tag IPs/packets</div>
+                                            <div style="display: flex; align-items: center; gap: 0.75rem;"><i class="ri-robot-line" style="color: var(--accent-blue); font-size: 1.125rem;"></i>Xbox Username AI – Suggest likely usernames</div>
+                                            <div style="display: flex; align-items: center; gap: 0.75rem;"><i class="ri-filter-line" style="color: var(--accent-blue); font-size: 1.125rem;"></i>Packet/Port Filters – Capture traffic selectively</div>
+                                            <div style="display: flex; align-items: center; gap: 0.75rem;"><i class="ri-gamepad-line" style="color: var(--accent-blue); font-size: 1.125rem;"></i>Game Filters – Auto-detect packets by game</div>
+                                            <div style="display: flex; align-items: center; gap: 0.75rem;"><i class="ri-discord-line" style="color: var(--accent-blue); font-size: 1.125rem;"></i>Discord Presence – Broadcast status</div>
+                                            <div style="display: flex; align-items: center; gap: 0.75rem;"><i class="ri-file-search-line" style="color: var(--accent-blue); font-size: 1.125rem;"></i>Packet Analyzer – Inspect every packet</div>
+                                            <div style="display: flex; align-items: center; gap: 0.75rem;"><i class="ri-ping-pong-line" style="color: var(--accent-blue); font-size: 1.125rem;"></i>Lookup & Ping IP – Check location, latency</div>
+                                            <div style="display: flex; align-items: center; gap: 0.75rem;"><i class="ri-global-line" style="color: var(--accent-blue); font-size: 1.125rem;"></i>Geo Info – Country, City, ISP, VPN/Proxy</div>
+                                            <div style="display: flex; align-items: center; gap: 0.75rem;"><i class="ri-chat-3-line" style="color: var(--accent-blue); font-size: 1.125rem;"></i>Live Chat – Built-in support</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card" style="margin-bottom: 2rem;">
+                                    <div class="card-header">
+                                        <h2 class="section-title">
+                                            <i class="ri-xbox-line"></i>
+                                            Xbox Tool Functions
+                                        </h2>
+                                    </div>
+                                    <div class="card-content">
+                                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; color: var(--text-secondary);">
+                                            <div style="display: flex; align-items: center; gap: 0.75rem;"><i class="ri-hand-grab-line" style="color: var(--accent-blue); font-size: 1.125rem;"></i>Grab/Crash Party, Unkickable, Crash Host</div>
+                                            <div style="display: flex; align-items: center; gap: 0.75rem;"><i class="ri-group-line" style="color: var(--accent-blue); font-size: 1.125rem;"></i>Open/Close Party, Party Status, Nuke Party, Stream Service</div>
+                                            <div style="display: flex; align-items: center; gap: 0.75rem;"><i class="ri-user-line" style="color: var(--accent-blue); font-size: 1.125rem;"></i>Get Friends List, Remove Friend</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card" style="margin-bottom: 2rem;">
+                                    <div class="card-header">
+                                        <h2 class="section-title">
+                                            <i class="ri-gamepad-line"></i>
+                                            Rec Room Tool Functions
+                                        </h2>
+                                    </div>
+                                    <div class="card-content">
+                                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; color: var(--text-secondary);">
+                                            <div style="display: flex; align-items: center; gap: 0.75rem;"><i class="ri-user-add-line" style="color: var(--accent-blue); font-size: 1.125rem;"></i>Grab Friends, Get Friends Bio, Lookup Username/UserID</div>
+                                            <div style="display: flex; align-items: center; gap: 0.75rem;"><i class="ri-home-line" style="color: var(--accent-blue); font-size: 1.125rem;"></i>Get Room Data, Account Info, Mass Report, Unban Me</div>
+                                            <div style="display: flex; align-items: center; gap: 0.75rem;"><i class="ri-shield-check-line" style="color: var(--accent-blue); font-size: 1.125rem;"></i>Check Ban Status, Influencer Status, Friends Count, Child Detection</div>
+                                            <div style="display: flex; align-items: center; gap: 0.75rem;"><i class="ri-settings-3-line" style="color: var(--accent-blue); font-size: 1.125rem;"></i>UnFavorite All, UnFriend, Mass Cheer, Sub Bot, Search Users</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card" style="margin-bottom: 2rem;">
+                                    <div class="card-header">
+                                        <h2 class="section-title">
+                                            <i class="ri-playstation-line"></i>
+                                            Playstation Tool Functions
+                                        </h2>
+                                    </div>
+                                    <div class="card-content">
+                                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; color: var(--text-secondary);">
+                                            <div style="display: flex; align-items: center; gap: 0.75rem;"><i class="ri-search-line" style="color: var(--accent-blue); font-size: 1.125rem;"></i>Search By Username</div>
+                                            <div style="display: flex; align-items: center; gap: 0.75rem;"><i class="ri-user-line" style="color: var(--accent-blue); font-size: 1.125rem;"></i>Profile By Username</div>
+                                            <div style="display: flex; align-items: center; gap: 0.75rem;"><i class="ri-id-card-line" style="color: var(--accent-blue); font-size: 1.125rem;"></i>Profile By AccountID</div>
+                                            <div style="display: flex; align-items: center; gap: 0.75rem;"><i class="ri-game-line" style="color: var(--accent-blue); font-size: 1.125rem;"></i>Titles</div>
+                                            <div style="display: flex; align-items: center; gap: 0.75rem;"><i class="ri-trophy-line" style="color: var(--accent-blue); font-size: 1.125rem;"></i>Trophies</div>
+                                            <div style="display: flex; align-items: center; gap: 0.75rem;"><i class="ri-gamepad-line" style="color: var(--accent-blue); font-size: 1.125rem;"></i>Games Played</div>
+                                            <div style="display: flex; align-items: center; gap: 0.75rem;"><i class="ri-history-line" style="color: var(--accent-blue); font-size: 1.125rem;"></i>Recent Games</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card" style="margin-bottom: 2rem;">
+                                    <div class="card-header">
+                                        <h2 class="section-title">
+                                            <i class="ri-global-line"></i>
+                                            Website Functions
+                                        </h2>
+                                    </div>
+                                    <div class="card-content">
+                                        <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.8;">We offer Xbox, Playstation, and Rec Room tools via website; use anytime even without a PC.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="pricing-section">
+                                <h3 class="pricing-section-title">Pricing Plans</h3>
+                                <div class="pricing-grid">
+                                    <div class="price-card">
+                                        <div class="chip chip-lifetime">Lifetime</div>
+                                        <h3>Lifetime Access</h3>
+                                        <div class="price-details">
+                                            <div class="feature"><i class="ri-checkbox-circle-line"></i>Full ZOPZ SNIFF Access (basic WinForms .NET 9.0 program)</div>
+                                            <div class="feature"><i class="ri-checkbox-circle-line"></i>Rec Room & Xbox Tools</div>
+                                            <div class="feature"><i class="ri-checkbox-circle-line"></i>HWID Reset (Unlimited)</div>
+                                            <div class="feature"><i class="ri-checkbox-circle-line"></i>Lifetime Support</div>
+                                            <div class="feature"><i class="ri-checkbox-circle-line"></i>All Future Updates Free</div>
+                                        </div>
+                                        <div class="price-amount">$25.00</div>
+                                        <div class="button-container" style="margin-top: 1.5rem;">
+                                            <button class="service-button" onclick="window.open('https://discord.com/users/zopz', '_blank')">
+                                                <i class="ri-discord-line"></i>
+                                                Buy Lifetime (DM)
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="price-card" style="border-color: var(--accent-yellow);">
+                                        <div class="chip chip-elite">MOST POPULAR</div>
+                                        <h3>Beta / Normal Access</h3>
+                                        <div class="price-details">
+                                            <div class="feature"><i class="ri-checkbox-circle-line"></i>Everything in Lifetime Access, plus Beta coded in WPF with custom backgrounds and customizable colors</div>
+                                            <div class="feature"><i class="ri-checkbox-circle-line"></i>Early Beta Access</div>
+                                            <div class="feature"><i class="ri-checkbox-circle-line"></i>Priority Updates & Support</div>
+                                            <div class="feature"><i class="ri-checkbox-circle-line"></i>Exclusive Beta Tools</div>
+                                        </div>
+                                        <div class="price-amount">$35.00</div>
+                                        <div class="button-container" style="margin-top: 1.5rem;">
+                                            <button class="service-button" onclick="window.open('https://discord.com/users/zopz', '_blank')">
+                                                <i class="ri-discord-line"></i>
+                                                Buy Beta/Normal (DM)
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exchanges Pricing -->
+                <div id="exchanges" class="pricing-content">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="pricing-section">
+                                <h3 class="pricing-section-title">Payment Exchanges</h3>
+                                <p class="pricing-section-description">Exchange between different payment methods with normalized fees. All exchanges include standard fees plus additional exchange rate fees based on transaction amount.</p>
+                                
+                                <div class="pricing-grid">
+                                    <div class="price-card">
+                                        <div class="chip chip-basic">Exchange</div>
+                                        <h3>PayPal to Cashapp</h3>
+                                        <div class="price-details">
+                                            <div class="feature"><i class="ri-exchange-line"></i>PayPal → Cashapp</div>
+                                            <div class="feature"><i class="ri-money-dollar-circle-line"></i>Normalized fees included</div>
+                                            <div class="feature"><i class="ri-percent-line"></i>+5% fee under $100</div>
+                                            <div class="feature"><i class="ri-percent-line"></i>+10% fee over $100</div>
+                                        </div>
+                                        <div class="price-amount">Contact for Quote</div>
+                                    </div>
+
+                                    <div class="price-card">
+                                        <div class="chip chip-basic">Exchange</div>
+                                        <h3>Cashapp to PayPal</h3>
+                                        <div class="price-details">
+                                            <div class="feature"><i class="ri-exchange-line"></i>Cashapp → PayPal</div>
+                                            <div class="feature"><i class="ri-money-dollar-circle-line"></i>Normalized fees included</div>
+                                            <div class="feature"><i class="ri-percent-line"></i>+5% fee under $100</div>
+                                            <div class="feature"><i class="ri-percent-line"></i>+10% fee over $100</div>
+                                        </div>
+                                        <div class="price-amount">Contact for Quote</div>
+                                    </div>
+
+                                    <div class="price-card">
+                                        <div class="chip chip-basic">Exchange</div>
+                                        <h3>PayPal/Cashapp to Venmo</h3>
+                                        <div class="price-details">
+                                            <div class="feature"><i class="ri-exchange-line"></i>PayPal/Cashapp → Venmo</div>
+                                            <div class="feature"><i class="ri-money-dollar-circle-line"></i>Normalized fees included</div>
+                                            <div class="feature"><i class="ri-percent-line"></i>+5% fee under $100</div>
+                                            <div class="feature"><i class="ri-percent-line"></i>+10% fee over $100</div>
+                                        </div>
+                                        <div class="price-amount">Contact for Quote</div>
+                                    </div>
+
+                                    <div class="price-card">
+                                        <div class="chip chip-lifetime">Crypto Exchange</div>
+                                        <h3>To Any Crypto</h3>
+                                        <div class="price-details">
+                                            <div class="feature"><i class="ri-exchange-line"></i>PayPal/Cashapp/Venmo → Crypto</div>
+                                            <div class="feature"><i class="ri-bit-coin-line"></i>Any cryptocurrency supported</div>
+                                            <div class="feature"><i class="ri-money-dollar-circle-line"></i>Normalized fees included</div>
+                                            <div class="feature"><i class="ri-percent-line"></i>+5% fee under $100</div>
+                                            <div class="feature"><i class="ri-percent-line"></i>+10% fee over $100</div>
+                                        </div>
+                                        <div class="price-amount">Contact for Quote</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="pricing-section">
+                                <h3 class="pricing-section-title">Exchange Fee Structure</h3>
+                                <div class="card" style="margin-top: 2rem;">
+                                    <div class="card-header">
+                                        <h2 class="section-title">
+                                            <i class="ri-information-line"></i>
+                                            Fee Information
+                                        </h2>
+                                    </div>
+                                    <div class="card-content">
+                                        <div style="display: grid; gap: 1.5rem; color: var(--text-secondary);">
+                                            <div style="display: flex; align-items: start; gap: 1rem;">
+                                                <i class="ri-checkbox-circle-line" style="color: var(--accent-blue); font-size: 1.25rem; margin-top: 0.125rem; flex-shrink: 0;"></i>
+                                                <div>
+                                                    <strong style="color: var(--text-primary); display: block; margin-bottom: 0.25rem;">Normalized Fees</strong>
+                                                    <span>All exchanges include standard normalized fees for the transaction type.</span>
+                                                </div>
+                                            </div>
+                                            <div style="display: flex; align-items: start; gap: 1rem;">
+                                                <i class="ri-percent-line" style="color: var(--accent-blue); font-size: 1.25rem; margin-top: 0.125rem; flex-shrink: 0;"></i>
+                                                <div>
+                                                    <strong style="color: var(--text-primary); display: block; margin-bottom: 0.25rem;">Additional Exchange Rate Fee</strong>
+                                                    <span>Extra 5% exchange rate fee for transactions under $100. Extra 10% exchange rate fee for transactions over $100.</span>
+                                                </div>
+                                            </div>
+                                            <div style="display: flex; align-items: start; gap: 1rem;">
+                                                <i class="ri-customer-service-2-line" style="color: var(--accent-blue); font-size: 1.25rem; margin-top: 0.125rem; flex-shrink: 0;"></i>
+                                                <div>
+                                                    <strong style="color: var(--text-primary); display: block; margin-bottom: 0.25rem;">Contact for Pricing</strong>
+                                                    <span>All exchange rates are calculated based on current market rates. Contact us for a personalized quote based on your transaction amount.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="button-container" style="margin-top: 3rem;">
+                                <button class="service-button" onclick="window.open('https://discord.com/users/zopz', '_blank')">
+                                    <i class="ri-discord-line"></i>
+                                    Contact for Exchange Quote
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            document.getElementById(tabId).classList.add('active');
+            const activeLink = Array.from(document.querySelectorAll('.nav-link')).find(link => 
+                link.getAttribute('onclick')?.includes(tabId)
+            );
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+            
+            if (tabId === 'pricing') {
+                showPricing('zopz');
+            }
+
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        function showPricing(pricingId) {
+            document.querySelectorAll('.pricing-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            document.getElementById(pricingId).classList.add('active');
+            document.querySelector(`[data-pricing="${pricingId}"]`).classList.add('active');
+        }
+    </script>
+</body>
+</html>

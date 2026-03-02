@@ -1,0 +1,14 @@
+[8;24;80t{clear}[38;5;39m │ [38;5;39mHelp Page[97m:
+[38;5;39m │ [97m[methods]     [38;5;39m: [97mShow available methods
+[38;5;39m │ [97m[ongoing]     [38;5;39m: [97mCheck ongoing attacks
+[38;5;39m │ [97m[games]       [38;5;39m: [97mMini Games you can play
+[38;5;39m │ [97m[account]     [38;5;39m: [97mAccount options
+[38;5;39m │ [97m[admin]       [38;5;39m: [97mAccess admin options
+[38;5;39m │ [97m[reseller]    [38;5;39m: [97mAccess reseller options
+[38;5;39m │ [97m[usage]       [38;5;39m: [97mHow to send a attack
+[38;5;39m │ [97m[tos]         [38;5;39m: [97mTerms And Service
+[38;5;39m │ [97m[credits]     [38;5;39m: [97mDeveloper information
+[38;5;39m │ [97m[clear]       [38;5;39m: [97mClear the console
+[38;5;39m │ [97m[tools]       [38;5;39m: [97mLists the tools you added.
+[38;5;39m │ [97m[exit]        [38;5;39m: [97mLogs out[97m
+[97m

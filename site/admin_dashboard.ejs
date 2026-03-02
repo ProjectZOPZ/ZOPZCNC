@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZOPZ STRESS | Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        * { font-family: 'Inter', sans-serif; }
+        body { 
+            background: #0a0a0a;
+            background-attachment: fixed;
+        }
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #141414;
+            --bg-card: #141414;
+            --border-color: #1f1f1f;
+            --border-hover: #1f1f1f;
+            --accent-primary: #ffffff;
+            --accent-secondary: #9ca3af;
+        }
+        .nav-active { 
+            background: #141414; 
+            border: 1px solid #1f1f1f; 
+        }
+        .glass { backdrop-filter: blur(20px) saturate(180%); }
+        .card-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .card-hover:hover { transform: translateY(-6px); }
+        .stat-card { 
+            background: #141414;
+            border: 1px solid #1f1f1f;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+        .stat-card:hover {
+            border-color: #1f1f1f;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        .animate-pulse-slow { animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+        .table-row {
+            transition: all 0.3s;
+            border-left: 2px solid transparent;
+        }
+        .table-row:hover {
+            background: #141414;
+            border-left-color: #1f1f1f;
+            transform: translateX(4px);
+        }
+    </style>
+</head>
+<body class="text-gray-100 min-h-screen">
+    <header class="border-b border-[#1f1f1f] bg-[#141414] sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 flex items-center justify-center bg-[#0f0f0f] rounded border border-[#1f1f1f]">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h1 class="text-xl font-semibold text-white">ZOPZ STRESS</h1>
+                </div>
+                <nav class="flex flex-wrap items-center gap-1 w-full sm:w-auto justify-center sm:justify-end">
+                    <a href="/dashboard/user" class="px-3 sm:px-4 py-2 rounded text-[#9ca3af] hover:text-white hover:bg-[#141414] border border-[#1f1f1f] transition-all flex items-center gap-2 text-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                        </svg>
+                        <span class="hidden sm:inline">Back to Dashboard</span>
+                    </a>
+                    <a href="/admin/dashboard" class="nav-active px-3 sm:px-4 py-2 rounded text-white transition-all flex items-center gap-2 text-sm">
+                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                        <span class="hidden sm:inline">Dashboard</span>
+                    </a>
+                    <a href="/admin/users" class="px-3 sm:px-4 py-2 rounded text-[#9ca3af] hover:text-white hover:bg-[#141414] transition-all flex items-center gap-2 text-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                        <span class="hidden sm:inline">Users</span>
+                    </a>
+                    <a href="/admin/attacks" class="px-3 sm:px-4 py-2 rounded text-[#9ca3af] hover:text-white hover:bg-[#141414] transition-all flex items-center gap-2 text-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                        <span class="hidden sm:inline">Attacks</span>
+                    </a>
+                    <a href="/admin/logs" class="px-3 sm:px-4 py-2 rounded text-[#9ca3af] hover:text-white hover:bg-[#141414] transition-all flex items-center gap-2 text-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        <span class="hidden sm:inline">Logs</span>
+                    </a>
+                    <a href="/api-docs" class="px-3 sm:px-4 py-2 rounded text-[#9ca3af] hover:text-white hover:bg-[#141414] transition-all flex items-center gap-2 text-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        <span class="hidden sm:inline">API Docs</span>
+                    </a>
+                </nav>
+                <a href="/login" class="px-3 py-2 text-red-400 hover:text-red-300 text-sm font-medium">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+        <div class="mb-8">
+            <h1 class="text-4xl sm:text-5xl font-semibold mb-3 text-white">Admin Dashboard</h1>
+            <p class="text-[#9ca3af] text-sm sm:text-base">Monitor system statistics and ongoing operations</p>
+        </div>
+
+        <!-- Error Alert -->
+        <% if (typeof error !== 'undefined' && error) { %>
+            <div class="mb-6 bg-[#141414] border border-red-500/30 rounded p-4 flex items-center gap-3">
+                <svg class="w-5 h-5 text-red-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span class="text-red-400"><%= error %></span>
+            </div>
+        <% } %>
+
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6 mb-8">
+            <div class="stat-card rounded p-5 sm:p-6 card-hover">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 bg-[#0f0f0f] rounded flex items-center justify-center border border-[#1f1f1f]">
+                        <svg class="w-6 h-6 sm:w-7 sm:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="text-2xl sm:text-3xl font-semibold text-white mb-1"><%= stats.totalUsers %></div>
+                <div class="text-xs sm:text-sm text-[#9ca3af] font-medium uppercase tracking-wider">Total Users</div>
+            </div>
+
+            <div class="stat-card rounded-lg p-5 sm:p-6 card-hover">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-emerald-500/30 to-teal-500/30 rounded-xl flex items-center justify-center border border-emerald-500/40 shadow-lg shadow-emerald-500/20">
+                        <svg class="w-6 h-6 sm:w-7 sm:h-7 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="text-2xl sm:text-3xl font-black text-white mb-1"><%= stats.activeUsers %></div>
+                <div class="text-xs sm:text-sm text-gray-400 font-semibold">Active Users</div>
+            </div>
+
+            <div class="stat-card rounded-lg p-5 sm:p-6 card-hover">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-red-500/30 to-rose-500/30 rounded-xl flex items-center justify-center border border-red-500/40 shadow-lg shadow-red-500/20">
+                        <svg class="w-6 h-6 sm:w-7 sm:h-7 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="text-2xl sm:text-3xl font-black text-white mb-1"><%= stats.bannedUsers %></div>
+                <div class="text-xs sm:text-sm text-gray-400 font-semibold">Banned Users</div>
+            </div>
+
+            <div class="stat-card rounded-lg p-5 sm:p-6 card-hover">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-yellow-500/30 to-amber-500/30 rounded-xl flex items-center justify-center border border-yellow-500/40 shadow-lg shadow-yellow-500/20">
+                        <svg class="w-6 h-6 sm:w-7 sm:h-7 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="text-2xl sm:text-3xl font-black text-white mb-1"><%= stats.expiredUsers %></div>
+                <div class="text-xs sm:text-sm text-gray-400 font-semibold">Expired Users</div>
+            </div>
+
+            <div class="stat-card rounded-lg p-5 sm:p-6 card-hover">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-cyan-500/30 to-purple-500/30 rounded-xl flex items-center justify-center border border-cyan-500/40 shadow-lg shadow-cyan-500/20">
+                        <svg class="w-6 h-6 sm:w-7 sm:h-7 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="text-2xl sm:text-3xl font-black text-white mb-1"><%= stats.ongoingAttacks %></div>
+                <div class="text-xs sm:text-sm text-gray-400 font-semibold">Active Attacks</div>
+            </div>
+        </div>
+
+        <!-- Ongoing Attacks Card -->
+        <div class="glass bg-[rgba(26,31,46,0.6)] border border-indigo-500/20 rounded-lg p-6 sm:p-8 shadow-2xl">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-lg flex items-center justify-center border border-indigo-500/30">
+                        <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-bold text-white">Ongoing Attacks</h2>
+                        <p class="text-xs sm:text-sm text-gray-400">Real-time attack monitoring</p>
+                    </div>
+                </div>
+                <a href="/admin/attacks" class="px-4 py-2 bg-indigo-500/10 hover:bg-indigo-500/20 border border-indigo-500/30 rounded-lg text-indigo-400 text-sm font-semibold transition-all duration-200 flex items-center gap-2">
+                    View All
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+            
+            <% if (ongoingAttacks && ongoingAttacks.length > 0) { %>
+                <div class="overflow-x-auto -mx-4 sm:mx-0">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="border-b border-[#1f1f1f]">
+                                <th class="text-left py-4 px-4 sm:px-6 text-xs font-medium text-[#9ca3af] uppercase tracking-wider">User</th>
+                                <th class="text-left py-4 px-4 sm:px-6 text-xs font-medium text-[#9ca3af] uppercase tracking-wider">Method</th>
+                                <th class="text-left py-4 px-4 sm:px-6 text-xs font-medium text-[#9ca3af] uppercase tracking-wider">Target</th>
+                                <th class="text-left py-4 px-4 sm:px-6 text-xs font-medium text-[#9ca3af] uppercase tracking-wider">Port</th>
+                                <th class="text-left py-4 px-4 sm:px-6 text-xs font-medium text-[#9ca3af] uppercase tracking-wider">Time</th>
+                                <th class="text-left py-4 px-4 sm:px-6 text-xs font-medium text-[#9ca3af] uppercase tracking-wider">Remaining</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-[#1f1f1f]">
+                            <% ongoingAttacks.slice(0, 10).forEach(attack => { %>
+                                <tr class="table-row">
+                                    <td class="py-4 px-4 sm:px-6">
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse-slow"></div>
+                                            <span class="text-white font-semibold"><%= attack.username %></span>
+                                        </div>
+                                    </td>
+                                    <td class="py-4 px-4 sm:px-6">
+                                        <span class="inline-flex items-center px-3 py-1 rounded text-xs font-medium bg-[#0f0f0f] text-white border border-[#1f1f1f]">
+                                            <%= attack.method %>
+                                        </span>
+                                    </td>
+                                    <td class="py-4 px-4 sm:px-6">
+                                        <span class="text-white font-medium text-sm"><%= attack.host %></span>
+                                    </td>
+                                    <td class="py-4 px-4 sm:px-6 text-[#9ca3af] font-medium"><%= attack.port %></td>
+                                    <td class="py-4 px-4 sm:px-6 text-[#9ca3af] font-medium"><%= attack.time %>s</td>
+                                    <td class="py-4 px-4 sm:px-6">
+                                        <span class="text-yellow-400 font-medium">
+                                            <%= Math.floor(attack.remainingTime / 60) %>m <%= attack.remainingTime % 60 %>s
+                                        </span>
+                                    </td>
+                                </tr>
+                            <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+            <% } else { %>
+                <div class="text-center py-16 sm:py-20">
+                    <div class="w-24 h-24 bg-[#0f0f0f] rounded flex items-center justify-center mx-auto mb-6 border border-[#1f1f1f]">
+                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <p class="text-white text-xl font-semibold mb-2">No ongoing attacks</p>
+                    <p class="text-[#9ca3af] text-sm">All attacks have completed</p>
+                </div>
+            <% } %>
+        </div>
+    </main>
+
+    <script>
+        setTimeout(() => location.reload(), 5000);
+    </script>
+</body>
+</html>

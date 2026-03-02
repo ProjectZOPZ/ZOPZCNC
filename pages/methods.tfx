@@ -1,0 +1,9 @@
+{clear}[8;24;88t[38;5;39mBasic Network[97m:
+[38;5;39m - [97mdns      [38;5;39m-[97m   DNS Amplification Flood With A Very Large Byte Size [97m[[38;5;46mHigh gbit/s[97m][97[38;5;39m.
+[38;5;39m - [97mgame     [38;5;39m-[97m   UDP Amplification with WSD, UDP, STUN, VSE, 1 and 2 Headers[38;5;39m.
+[38;5;39m - [97mtcp      [38;5;39m-[97m   Optimized for tcp targets | Vectors psh, ack, syn[38;5;39m.
+[38;5;39m - [97mudp      [38;5;39m-[97m   High Volume, Generic UDP Flood [97m[[38;5;46mHigh gbit/s[97m][38;5;39m.
+[38;5;39m - [97mbypass   [38;5;39m-[97m   Bypass Made For All L7 Protections, UAM, BROWSER, TLS, HTTP[38;5;39m.
+[38;5;39m - [97mdiscord  [38;5;39m-[97m   Spoofed / Raw Traffic Made For Bypassing Discord Calls[38;5;39m.
+[38;5;39mPreset[97m: [38;5;39m[97mhold [38;5;39m<[97mtarget[38;5;39m> <[97mport[38;5;39m> [38;5;39m<[97mtime[38;5;39m>
+[38;5;39mExample[97m: [38;5;39m[97mhold 70.70.70.7 53 120

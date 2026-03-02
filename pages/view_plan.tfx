@@ -1,0 +1,19 @@
+{clear}[8;24;90t[38;5;39m │ [38;5;39mViewplan details [97m:
+[38;5;39m │ [97mUsername             [38;5;39m: [97m@{user.username}
+[38;5;39m │ [97mPassword             [38;5;39m: [97m{user.password}
+[38;5;39m │ [97mRole                 [38;5;39m: [97m{user.role}
+[38;5;39m │ [97mAdmin                [38;5;39m: [97m{user.admin}
+[38;5;39m │ [97mReseller             [38;5;39m: [97m{user.reseller}
+[38;5;39m │ [97mVIP                  [38;5;39m: [97m{user.vip}
+[38;5;39m │ [97mExpiry               [38;5;39m: [97m{user.expiry}
+[38;5;39m │ [97mMax Time             [38;5;39m: [97m{user.maxTime}
+[38;5;39m │ [97mConcurrents          [38;5;39m: [97m{user.concurrents}
+[38;5;39m │ [97mCooldown             [38;5;39m: [97m{user.cooldown}
+[38;5;39m │ [97mAPI                  [38;5;39m: [97m{user.api}
+[38;5;39m │ [97mSpam Bypass          [38;5;39m: [97m{user.spambypass}
+[38;5;39m │ [97mBlacklist Bypass     [38;5;39m: [97m{user.blacklistbypass}
+[38;5;39m │ [97mHomeholder           [38;5;39m: [97m{user.homeholder}
+[38;5;39m │ [97mBotnet Network       [38;5;39m: [97m{user.botnet}
+[38;5;39m │ [97mBanned               [38;5;39m: [97m{user.banned}
+[38;5;39m │ [97mBan Reason           [38;5;39m: [97m{user.banReason}
+[97m

